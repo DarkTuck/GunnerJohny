@@ -87,7 +87,8 @@ public class PlayerWeapon : MonoBehaviour
             weapons[currentWeapon].currentAmmo--;
             yield return new WaitForSeconds(weapons[currentWeapon].fireRate);
         }
-        Relode();
+        Relode();//ToThink: czy wstanienie relode w loop nie pozwoli strzelać ciągle z przewą na przeładowanie
+        //also czy nie ma problemu możliwości strzelania i przeładowania jednoczśnie
     }
 
     IEnumerator FP()
