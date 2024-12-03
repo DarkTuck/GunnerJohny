@@ -6,6 +6,7 @@ public class PlayerWeapon : MonoBehaviour
 {
     [SerializeField] Weapon[] weapons;
     Actions actions;
+    [SerializeField]Ammuniton ammo;
     [SerializeField]private int currentWeapon=0;
     [SerializeField] LayerMask hitLayers;
     Coroutine RelodeCorutine;
@@ -35,6 +36,7 @@ public class PlayerWeapon : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        ammo.InitializeAmmunitons();
         for (int i = 0; i < weapons.Length; i++)
         {
             if (weapons[i] != null)
@@ -75,6 +77,11 @@ public class PlayerWeapon : MonoBehaviour
             Debug.Log("Not a projectile");
             StartCoroutine("FR");
         }
+        else
+        {
+            Debug.Log("It's a projectile");
+            StartCoroutine("FP");
+        }
     }
 
     IEnumerator FR() //Fire Ray
@@ -110,6 +117,11 @@ public class PlayerWeapon : MonoBehaviour
         if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hit,hitLayers))
         {
             Debug.Log(hit.collider.gameObject.name);
+            IDamageable damageable = hit.collider.gameObject.GetComponent<IDamageable>();
+            if (damageable != null)
+            {
+                damageable.Damage(weapons[currentWeapon].damage);
+            }
         }
     }
 

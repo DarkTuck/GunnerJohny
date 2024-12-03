@@ -11,6 +11,7 @@ public class Weapon : ScriptableObject
     public bool isProjectile;
     public float reloadTime;
     public float equipTime;
+    public Ammuniton.AmmunitonType ammunitonType;
     [ShowIf("isProjectile")]public GameObject projectile;
     [ShowIf("isProjectile")]public float projectileSpeed;
     public Sprite weponModel;
