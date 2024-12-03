@@ -22,7 +22,7 @@ public class PlayerWeapon : MonoBehaviour
         actions.Enable();
         actions.Player.Attack.performed += Shoot;
         actions.Player.Select.performed += SelectWeapon;
-        actions.Player.Relode.performed += PlayerRelode;
+        //actions.Player.Relode.performed += PlayerRelode;
         //scroll = actions.Player.Select;
     }
 
@@ -31,12 +31,13 @@ public class PlayerWeapon : MonoBehaviour
         actions.Disable();
         actions.Player.Attack.performed -= Shoot;
         actions.Player.Select.performed -= SelectWeapon;
-        actions.Player.Relode.performed -= PlayerRelode;
+        //actions.Player.Relode.performed -= PlayerRelode;
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         ammo.InitializeAmmunitons();
+        /*
         for (int i = 0; i < weapons.Length; i++)
         {
             if (weapons[i] != null)
@@ -44,6 +45,7 @@ public class PlayerWeapon : MonoBehaviour
                 weapons[i].currentAmmo = weapons[i].ammoCount;
             }
         }
+        */
     }
 
     void SelectWeapon(InputAction.CallbackContext context)
@@ -68,10 +70,10 @@ public class PlayerWeapon : MonoBehaviour
     void Shoot(InputAction.CallbackContext context)
     {
         //Coroutine fireMode;
-        if (RelodeCorutine != null && weapons[currentWeapon].currentAmmo > 0)
+       /* if (RelodeCorutine != null && weapons[currentWeapon].currentAmmo > 0)
         {
             CorutineStop(ref RelodeCorutine);
-        }
+        }*/
         if (!weapons[currentWeapon].isProjectile)
         {
             Debug.Log("Not a projectile");
@@ -87,27 +89,27 @@ public class PlayerWeapon : MonoBehaviour
     IEnumerator FR() //Fire Ray
     {
         Debug.Log("FR");
-        while (actions.Player.Attack.IsPressed()&&weapons[currentWeapon].currentAmmo>0)
+        while (actions.Player.Attack.IsPressed()&&ammo.ammunitons[weapons[currentWeapon].ammunitonType]>0)
         {
             FireRay();
             Debug.Log("fired");
-            weapons[currentWeapon].currentAmmo--;
+            ammo.ammunitons[weapons[currentWeapon].ammunitonType]--;
             yield return new WaitForSeconds(weapons[currentWeapon].fireRate);
         }
-        Relode();//ToThink: czy wstanienie relode w loop nie pozwoli strzelać ciągle z przewą na przeładowanie
+        //Relode();//ToThink: czy wstanienie relode w loop nie pozwoli strzelać ciągle z przewą na przeładowanie
         //also czy nie ma problemu możliwości strzelania i przeładowania jednoczśnie
     }
 
     IEnumerator FP()
     {
-        while (actions.Player.Attack.IsPressed()&&weapons[currentWeapon].currentAmmo>0)
+        while (actions.Player.Attack.IsPressed()&&ammo.ammunitons[weapons[currentWeapon].ammunitonType]>0)
         {
            Debug.Log("FP");
            FireProjectile();
-           weapons[currentWeapon].currentAmmo--;
+           ammo.ammunitons[weapons[currentWeapon].ammunitonType]--;
            yield return new WaitForSeconds(weapons[currentWeapon].fireRate);
         }
-        Relode();
+        //Relode();
         
     }
     
@@ -130,7 +132,7 @@ public class PlayerWeapon : MonoBehaviour
         
     }
     #endregion
-#region Relode
+/*#region Relode
     private void Relode()
     {
         if (weapons[currentWeapon].currentAmmo <= 0)
@@ -139,7 +141,7 @@ public class PlayerWeapon : MonoBehaviour
             CorutinStart(ref RelodeCorutine);
         }
     }
-    bool CorutinStart(ref Coroutine coroutine/*,IEnumerator enumerato*/)
+    bool CorutinStart(ref Coroutine coroutine)
     {
         if (coroutine == null)
         {
@@ -178,7 +180,7 @@ public class PlayerWeapon : MonoBehaviour
         weapon.currentAmmo=weapon.ammoCount;
         
     }
-    #endregion
+    #endregion */
     // Update is called once per frame
     void FixedUpdate()
     {
