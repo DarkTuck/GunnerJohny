@@ -89,11 +89,11 @@ public class PlayerWeapon : MonoBehaviour
     IEnumerator FR() //Fire Ray
     {
         Debug.Log("FR");
-        while (actions.Player.Attack.IsPressed()&&ammo.ammunitons[weapons[currentWeapon].ammunitonType]>0)
+        while (actions.Player.Attack.IsPressed()&&ammo.Ammunitons[weapons[currentWeapon].ammunitonType].IntValue>0)
         {
             FireRay();
             Debug.Log("fired");
-            ammo.ammunitons[weapons[currentWeapon].ammunitonType]--;
+            ammo.Ammunitons[weapons[currentWeapon].ammunitonType].IntValue--;
             yield return new WaitForSeconds(weapons[currentWeapon].fireRate);
         }
         //Relode();//ToThink: czy wstanienie relode w loop nie pozwoli strzelać ciągle z przewą na przeładowanie
@@ -102,11 +102,11 @@ public class PlayerWeapon : MonoBehaviour
 
     IEnumerator FP()
     {
-        while (actions.Player.Attack.IsPressed()&&ammo.ammunitons[weapons[currentWeapon].ammunitonType]>0)
+        while (actions.Player.Attack.IsPressed()&&ammo.Ammunitons[weapons[currentWeapon].ammunitonType].IntValue>0)
         {
            Debug.Log("FP");
            FireProjectile();
-           ammo.ammunitons[weapons[currentWeapon].ammunitonType]--;
+           ammo.Ammunitons[weapons[currentWeapon].ammunitonType].IntValue--;
            yield return new WaitForSeconds(weapons[currentWeapon].fireRate);
         }
         //Relode();

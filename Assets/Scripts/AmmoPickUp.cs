@@ -10,6 +10,9 @@ public class AmmoPickUp : ScriptableObject
 
     public void PickUpAmmo(Ammuniton ammuniton)
     {
-        ammuniton.ammunitons[ammoType] += ammo;
+        if (ammuniton.Ammunitons[ammoType].IntValue + ammo <= ammuniton.MaxAmmunitons[ammoType].IntValue)
+        {
+            ammuniton.Ammunitons[ammoType].IntValue += ammo;
+        }
     }
 }

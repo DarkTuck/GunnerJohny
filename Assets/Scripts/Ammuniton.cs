@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using NaughtyAttributes;
 public enum AmmunitonType
 {
     Bullets,
@@ -11,18 +12,34 @@ public enum AmmunitonType
 public class Ammuniton : ScriptableObject
 {
 
-    [SerializeField]int bullets, shells, rockets, energyCell;
+    [SerializeField][Foldout("StartingValues")]int bullets, shells, rockets, energyCell, maxBullets, maxShells, maxRockets, maxEnergyCells;
+    [SerializeField][Foldout("Events")]IntEvent bulletsEvent, shellsEvent, rocketsEvent, energyCellEvent, maxBulletsEvent, maxShellsEvent, maxRocketsEvent, maxEnergyCell;
 
-    public Dictionary<AmmunitonType, int> ammunitons;
+    public Dictionary<AmmunitonType, IntEvent> Ammunitons;
+    public Dictionary<AmmunitonType, IntEvent> MaxAmmunitons;
     public void InitializeAmmunitons()
     {
-        ammunitons = new Dictionary<AmmunitonType, int>()
+        bulletsEvent.IntValue = bullets;
+        shellsEvent.IntValue = shells;
+        rocketsEvent.IntValue = rockets;
+        energyCellEvent.IntValue = energyCell;
+        maxBulletsEvent.IntValue = maxBullets;
+        maxShellsEvent.IntValue = maxShells;
+        maxRocketsEvent.IntValue = maxRockets;
+        maxEnergyCell.IntValue = maxEnergyCells;
+        Ammunitons = new Dictionary<AmmunitonType, IntEvent>()
         {
-            { AmmunitonType.Bullets, bullets },
-            { AmmunitonType.Shells, shells },
-            { AmmunitonType.Rockets, rockets },
-            { AmmunitonType.EnergyCell, energyCell }
+            { AmmunitonType.Bullets, bulletsEvent },
+            { AmmunitonType.Shells, shellsEvent },
+            { AmmunitonType.Rockets, rocketsEvent },
+            { AmmunitonType.EnergyCell, energyCellEvent }
+        };
+        MaxAmmunitons = new Dictionary<AmmunitonType, IntEvent>()
+        {
+            { AmmunitonType.Bullets, maxBulletsEvent },
+            { AmmunitonType.Shells, maxShellsEvent },
+            { AmmunitonType.Rockets, maxRocketsEvent },
+            { AmmunitonType.EnergyCell, maxEnergyCell }
         };
     }
-
 }

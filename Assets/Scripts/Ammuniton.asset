@@ -16,3 +16,15 @@ MonoBehaviour:
   shells: 10
   rockets: 3
   energyCell: 0
+  maxBullets: 200
+  maxShells: 50
+  maxRockets: 50
+  maxEnergyCells: 300
+  bulletsEvent: {fileID: 11400000, guid: af1406d8bc81c9f4591ca2a7ee910212, type: 2}
+  shellsEvent: {fileID: 11400000, guid: fa82f7b8e04250240881bfe7c5857896, type: 2}
+  rocketsEvent: {fileID: 11400000, guid: fc4403761a0100e44bfd16ecdaf1563b, type: 2}
+  energyCellEvent: {fileID: 11400000, guid: c748f9c41b0ec6447b91c1f3fb02da1b, type: 2}
+  maxBulletsEvent: {fileID: 11400000, guid: 2c503e8d9ee40934aaf0e83cf65f3598, type: 2}
+  maxShellsEvent: {fileID: 11400000, guid: efb5fe0331ddd2c4c825046b663c9d98, type: 2}
+  maxRocketsEvent: {fileID: 11400000, guid: 6d3ccbbfa90703e42bf35f7f0703d27e, type: 2}
+  maxEnergyCell: {fileID: 11400000, guid: 41bef9393cfdf4149a06404e025896a5, type: 2}
