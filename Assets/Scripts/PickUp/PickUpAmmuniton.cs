@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class PickUpAmmuniton : PickUpScript
 {
-    [SerializeField] private float pickDistance;
     [SerializeField] private AmmoPickUp pickUpAmmunition;
     [SerializeField] private Ammuniton ammunition;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -14,15 +13,11 @@ public class PickUpAmmuniton : PickUpScript
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (CheckDistance(pickDistance))
+        if (CheckDistance())
         {
-            AddAmmunition();
+            pickUpAmmunition.PickUpAmmo(ammunition);
             Destroy(this.gameObject);
         }
     }
-
-    void AddAmmunition()
-    {
-        ammunition.Ammunitons[pickUpAmmunition.ammoType].IntValue+=pickUpAmmunition.ammo;
-    }
+    
 }

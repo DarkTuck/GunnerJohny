@@ -6,9 +6,9 @@ using UnityEngine.InputSystem;
 
 public class PlayerHealth : MonoBehaviour, IDamageable
 {
-    [SerializeField][Foldout("Events")] IntEvent playerHealth, playerArmor;
+    [SerializeField][Foldout("Events")] HealthArmorScriptableObject playerHealth, playerArmor;
     [SerializeField] int health, armor;
-    [SerializeField][Foldout("Maxes")] int MaxHealth = 200, MaxArmor = 200;
+    [SerializeField][Foldout("Maxes")] int maxHealth = 200, maxArmor = 200;
     private Actions actions;
 
     void Awake()
@@ -33,6 +33,8 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     {
         playerHealth.IntValue=health;
         playerArmor.IntValue = armor;
+        playerArmor.max=maxArmor;
+        playerHealth.max=maxHealth;
         
     }
 
@@ -41,7 +43,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
         if (playerHealth.IntValue > 0)
         {
             playerHealth.IntValue -=/* Mathf.Clamp( Mathf.RoundToInt(((float)damage*0.6f)),0,MaxHealth)*/Mathf.RoundToInt(((float)damage*0.6f));
-            playerArmor.IntValue = Mathf.Clamp(  playerArmor.IntValue-Mathf.RoundToInt(((float)damage*0.3f)),0,MaxArmor);
+            playerArmor.IntValue = Mathf.Clamp(  playerArmor.IntValue-Mathf.RoundToInt(((float)damage*0.3f)),0,maxArmor);
         }
         else
         {

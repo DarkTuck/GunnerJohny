@@ -4,9 +4,10 @@ using UnityEngine.Rendering;
 public class PickUpScript : MonoBehaviour
 {
     [SerializeField] private Transform playerPossiton;
-    public bool CheckDistance(float Distance)
+    [SerializeField] private float pickDistance;
+    public bool CheckDistance()
     {
-        if (Vector3.Distance(transform.position, playerPossiton.position) <= Distance)
+        if (Vector3.Distance(transform.position, playerPossiton.position) <= pickDistance)
         {
             return true;
         }

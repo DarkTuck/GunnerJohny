@@ -3,8 +3,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "AmmoPickUp", menuName = "PickUp's/Ammo")]
 public class AmmoPickUp : ScriptableObject
 {
-    public int ammo;
-    public AmmunitonType ammoType;
+    [SerializeField] int ammo;
+    [SerializeField] AmmunitonType ammoType;
     public Sprite ammoSprite;
     
 
