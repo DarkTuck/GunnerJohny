@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.Serialization;
 using TMPro;
 
-public class IntEventUseExample : MonoBehaviour
+public class IntEventOutPercent : MonoBehaviour
 {
 	[SerializeField] private IntEvent attachedIntEvent;
 	[SerializeField] private TextMeshProUGUI attachedIntEventText;
@@ -20,7 +20,7 @@ public class IntEventUseExample : MonoBehaviour
 	private void AttachedIntEventChanged(bool isDebug)
 	{
 		//Debug.Log("IntEvent new value = " + attachedIntEvent.IntValue.ToString());
-		attachedIntEventText.text = attachedIntEvent.IntValue.ToString("D3");
+		attachedIntEventText.text = $@"{attachedIntEvent.IntValue}%";
 		//do stuff
 	}
 }
