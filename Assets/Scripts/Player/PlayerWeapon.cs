@@ -132,8 +132,8 @@ public class PlayerWeapon : MonoBehaviour
         
     }
     #endregion
-/*#region Relode
-    private void Relode()
+#region Relode
+/*    private void Relode()
     {
         if (weapons[currentWeapon].currentAmmo <= 0)
         {
@@ -179,8 +179,8 @@ public class PlayerWeapon : MonoBehaviour
         yield return new WaitForSeconds(weapon.reloadTime);
         weapon.currentAmmo=weapon.ammoCount;
         
-    }
-    #endregion */
+    }*/
+    #endregion 
     // Update is called once per frame
     void FixedUpdate()
     {

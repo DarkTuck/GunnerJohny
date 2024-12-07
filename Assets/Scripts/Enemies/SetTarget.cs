@@ -14,6 +14,6 @@ public class SetTarget : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        agent.SetDestination(PlayerPosSingleton._player.transform.position);    
+        agent.SetDestination(PlayerSingleton._player.transform.position);    
     }
 }

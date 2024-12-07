@@ -9,8 +9,9 @@ public class PlayerMovement : MonoBehaviour
     //[SerializeField] Animator animator;
     //[SerializeField] PlayerWeapon weaponScript;
     //[SerializeField] ParticleSystem dustParticle;
-    private Rigidbody rb;
+    //private Rigidbody rb;
     private InputAction move; //odbiera input z akcji move
+    private Transform player;
     // Start is called before the first frame update
     private void OnEnable()
     {
@@ -27,8 +28,9 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
     {
         //Jebać ręczne popinaie
-        rb = GetComponent<Rigidbody>();
+        //rb = GetComponent<Rigidbody>();
         actions = new Actions();
+        player = transform;
         //weaponScript = GetComponentInChildren<PlayerWeapon>();
 
     }
@@ -42,7 +44,7 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         Vector3 moveDirection=new Vector3(move.ReadValue<Vector2>().x,0,move.ReadValue<Vector2>().y);
-        transform.Translate(moveDirection*speed, Space.Self);
+        player.Translate(moveDirection*speed, Space.Self);
         //if (moveDirection != Vector3.zero) { AudioManager.instance.PlayOneShot(AudioManager.instance.Footstep, this.transform.position); }
     }
     //SEX NIE ISTNIEJE

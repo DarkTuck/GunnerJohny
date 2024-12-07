@@ -10,7 +10,6 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     [SerializeField] int health, armor;
     [SerializeField][Foldout("Maxes")] int maxHealth = 200, maxArmor = 200;
     private Actions actions;
-
     void Awake()
     {
         actions = new Actions();
@@ -21,7 +20,6 @@ public class PlayerHealth : MonoBehaviour, IDamageable
         actions.Enable();
         actions.Player.Relode.performed += DamagedTest;
     }
-
     void OnDisable()
     {
         actions.Disable();
