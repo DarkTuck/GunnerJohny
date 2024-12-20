@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 public class PlayerWeapon : MonoBehaviour
@@ -9,12 +10,16 @@ public class PlayerWeapon : MonoBehaviour
     [SerializeField]Ammuniton ammo;
     [SerializeField]private int currentWeapon=0;
     [SerializeField] LayerMask hitLayers;
+    [SerializeField] AudioSource audio;
+    Transform thisTransform;
+    
     Coroutine RelodeCorutine;
     //private InputAction scroll;
 
     void Awake()
     {
         actions = new Actions();
+        thisTransform = transform;
     }
 
     void OnEnable()
@@ -37,6 +42,7 @@ public class PlayerWeapon : MonoBehaviour
     void Start()
     {
         ammo.InitializeAmmunitons();
+        //audio.clip = weapons[currentWeapon].shoot;
         /*
         for (int i = 0; i < weapons.Length; i++)
         {
@@ -55,13 +61,15 @@ public class PlayerWeapon : MonoBehaviour
             if (weapons[currentWeapon+1] != null)
             {
                 currentWeapon++;
+                //audio.clip = weapons[currentWeapon].shoot;
             }
         }
         else if(context.ReadValue<float>() <0 && currentWeapon !=0)
         {
             if (weapons[currentWeapon-1] != null)
             {
-                currentWeapon--;    
+                currentWeapon--;
+                //audio.clip = weapons[currentWeapon].shoot;
             }
         }
     }
@@ -93,7 +101,8 @@ public class PlayerWeapon : MonoBehaviour
         {
             FireRay();
             Debug.Log("fired");
-            ammo.Ammunitons[weapons[currentWeapon].ammunitonType].IntValue--;
+            SameForAllGuns();
+
             yield return new WaitForSeconds(weapons[currentWeapon].fireRate);
         }
         //Relode();//ToThink: czy wstanienie relode w loop nie pozwoli strzelać ciągle z przewą na przeładowanie
@@ -106,7 +115,8 @@ public class PlayerWeapon : MonoBehaviour
         {
            Debug.Log("FP");
            FireProjectile();
-           ammo.Ammunitons[weapons[currentWeapon].ammunitonType].IntValue--;
+           SameForAllGuns();
+
            yield return new WaitForSeconds(weapons[currentWeapon].fireRate);
         }
         //Relode();
@@ -127,6 +137,11 @@ public class PlayerWeapon : MonoBehaviour
         }
     }
 
+    void SameForAllGuns()
+    {
+        ammo.Ammunitons[weapons[currentWeapon].ammunitonType].IntValue--;
+        audio.PlayOneShot(weapons[currentWeapon].shoot);
+    }
     void FireProjectile()
     {
         

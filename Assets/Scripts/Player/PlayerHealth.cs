@@ -9,6 +9,8 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     [SerializeField][Foldout("Events")] HealthArmorScriptableObject playerHealth, playerArmor;
     [SerializeField] int health, armor;
     [SerializeField][Foldout("Maxes")] int maxHealth = 200, maxArmor = 200;
+    [SerializeField][Foldout("Audio")] AudioSource audioSource;
+    [SerializeField][Foldout("Audio")] AudioClip damageSound,deathSound;
     private Actions actions;
     void Awake()
     {
@@ -42,10 +44,12 @@ public class PlayerHealth : MonoBehaviour, IDamageable
         {
             playerHealth.IntValue -=/* Mathf.Clamp( Mathf.RoundToInt(((float)damage*0.6f)),0,MaxHealth)*/Mathf.RoundToInt(((float)damage*0.6f));
             playerArmor.IntValue = Mathf.Clamp(  playerArmor.IntValue-Mathf.RoundToInt(((float)damage*0.3f)),0,maxArmor);
+            audioSource.PlayOneShot(damageSound);
         }
         else
         {
             playerHealth.IntValue -= damage;
+            audioSource.PlayOneShot(deathSound);
         }
 
         if (playerHealth.IntValue <= 0)
@@ -59,6 +63,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     void Kill()
     {
         Debug.Log("Player is dead");
+        audioSource.PlayOneShot(deathSound);
     }
 
     // Update is called once per frame

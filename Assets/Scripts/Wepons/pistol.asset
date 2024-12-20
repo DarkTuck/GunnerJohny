@@ -14,11 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 10
   ammoCount: 15
-  currentAmmo: 15
   fireRate: 0.3
   isProjectile: 0
   reloadTime: 1.5
   equipTime: 0.5
+  ammunitonType: 0
+  shoot: {fileID: 8300000, guid: df80ecb3eae63b942a29cdbd17b86b52, type: 3}
   projectile: {fileID: 0}
   projectileSpeed: 0
   weponModel: {fileID: 0}
