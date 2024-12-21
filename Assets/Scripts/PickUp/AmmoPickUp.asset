@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ammo: 10
   ammoType: 0
-  ammoSprite: {fileID: 0}
+  ammoSprite: {fileID: 21300000, guid: 297ff1fe5507b1046af2034e4bb353e2, type: 3}

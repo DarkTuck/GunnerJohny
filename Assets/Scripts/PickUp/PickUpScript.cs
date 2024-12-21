@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -12,5 +13,10 @@ public class PickUpScript : MonoBehaviour
             return true;
         }
         return false;
+    }
+
+    private void Update()
+    {
+        transform.rotation = new Quaternion(0, CameraSingleton.cameraTransform.rotation.y, 0, CameraSingleton.cameraTransform.rotation.w);
     }
 }

@@ -6,6 +6,11 @@ public class PickUpArmor : PickUpScript
     [SerializeField] HealthArmorScriptableObject ArmorInt;
     [FormerlySerializedAs("HealthArmorPickUp")] [SerializeField] HealthArmorPickUp healthArmorPickUp;
 
+    void Start()
+    {
+        gameObject.GetComponent<SpriteRenderer>().sprite = healthArmorPickUp.healthArmorSprite;
+    }
+
     void FixedUpdate()
     {
         if (CheckDistance())
