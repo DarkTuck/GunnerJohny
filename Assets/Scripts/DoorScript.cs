@@ -46,7 +46,7 @@ public class DoorScript : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (Vector3.Distance(new Vector3(player.transform.position.x,0), new Vector3(doorPos.x,0)) <= distance&&doorCanBeOpened==false)
+        if (doorCanBeOpened==false && Vector3.Distance(new Vector3(player.transform.position.x,0), new Vector3(doorPos.x,0)) <= distance)
         {
             actions.Player.Interact.started += TryToOpenDoor;
             doorCanBeOpened = true;
