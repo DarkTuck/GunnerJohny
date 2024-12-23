@@ -6,14 +6,14 @@ public class PlayerSingleton : MonoBehaviour
 
     public static Transform _player
     {
-        get { return _instance.transform; }
+        get => _instance.transform;
         private set { }
     }
 
     private IDamageable _playerDamage;
     public static IDamageable _damageable
     {
-        get { return _instance._playerDamage; }
+        get => _instance._playerDamage;
         private set { }
     }
     

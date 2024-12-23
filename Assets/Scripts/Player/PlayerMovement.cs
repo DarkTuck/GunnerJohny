@@ -15,7 +15,7 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     private void OnEnable()
     {
-        //głównie popina input do wartoœci w skrypcie
+        //głównie podpina input do wartości w skrypcie
         actions.Player.Enable();
         move = actions.Player.Move;
     }
@@ -27,7 +27,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Awake()
     {
-        //Jebać ręczne popinaie
+        //Jebać ręczne podpinanie
         //rb = GetComponent<Rigidbody>();
         actions = new Actions();
         player = transform;

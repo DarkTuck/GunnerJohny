@@ -13,14 +13,10 @@ public class PlayerWeapon : MonoBehaviour
     [SerializeField]private int currentWeapon=0;
     [SerializeField] LayerMask hitLayers;
     [SerializeField] AudioSource audio;
-    Transform thisTransform;
-    
-    //private InputAction scroll;
 
     void Awake()
     {
         actions = new Actions();
-        thisTransform = transform;
     }
 
     void OnEnable()
@@ -79,13 +75,13 @@ public class PlayerWeapon : MonoBehaviour
        switch (weapons[currentWeapon].weaponType)
        {
            case WeaponType.pistol:
-               StartCoroutine("FR");
+               StartCoroutine(nameof(FR));
                break;
            case WeaponType.shotgun:
                FireRayShotgun();
                break;
            default:
-               StartCoroutine("FP");
+               StartCoroutine(nameof(FP));
                break;
        }
     }

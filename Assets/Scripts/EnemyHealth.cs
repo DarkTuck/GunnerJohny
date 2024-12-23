@@ -15,7 +15,7 @@ public class EnemyHealth : MonoBehaviour , IDamageable
         Debug.Log(gameObject.name + health);
         if (health <= 0)
         {
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
     // Update is called once per frame

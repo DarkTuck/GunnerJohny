@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using DG.Tweening;
-using UnityEngine.ProBuilder;
 
 public class DoorScript : MonoBehaviour
 {
@@ -17,14 +16,7 @@ public class DoorScript : MonoBehaviour
     {
         actions = new Actions();
         AudioSource audio = GetComponent<AudioSource>();
-        if (audio == null)
-        {
-           doorAudio= gameObject.AddComponent<AudioSource>();
-        }
-        else
-        {
-            doorAudio = audio;
-        }
+        doorAudio = audio == null ? gameObject.AddComponent<AudioSource>() : audio;
         
     }
 

@@ -4,11 +4,18 @@ using UnityEngine.Rendering;
 
 public class PickUpScript : MonoBehaviour
 {
-    [SerializeField] private Transform playerPossiton;
+    Transform playerPosition,pickUpTransform;
     [SerializeField] private float pickDistance;
-    public bool CheckDistance()
+
+    void OnEnable()
     {
-        if (Vector3.Distance(transform.position, playerPossiton.position) <= pickDistance)
+        playerPosition = PlayerSingleton._player.transform;
+        pickUpTransform= transform;
+    }
+ 
+    protected bool CheckDistance()
+    {
+        if (Vector3.Distance(pickUpTransform.position, playerPosition.position) <= pickDistance)
         {
             return true;
         }
@@ -17,6 +24,6 @@ public class PickUpScript : MonoBehaviour
 
     private void Update()
     {
-        transform.rotation = new Quaternion(0, CameraSingleton.cameraTransform.rotation.y, 0, CameraSingleton.cameraTransform.rotation.w);
+        pickUpTransform.rotation = new Quaternion(0, CameraSingleton.cameraTransform.rotation.y, 0, CameraSingleton.cameraTransform.rotation.w);
     }
 }

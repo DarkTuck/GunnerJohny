@@ -5827,8 +5827,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f8b9701909a1684288eaf36dc9d42dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPossiton: {fileID: 723691421}
-  pickDistance: 0.5
+  pickDistance: 1
   pickUpAmmunition: {fileID: 11400000, guid: 83cb8ad7af094aa4eb37813cabd652ff, type: 2}
   ammunition: {fileID: 11400000, guid: 07845d957109ae849a2746389e603954, type: 2}
 --- !u!135 &1231308381
