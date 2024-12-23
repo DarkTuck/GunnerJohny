@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: Shotgun
   m_EditorClassIdentifier: 
   damage: 10
-  weponType: 1
+  weaponType: 0
   fireRate: 1
   isProjectile: 0
   equipTime: 1
-  ammunitonType: 1
+  ammoType: 1
   shoot: {fileID: 8300000, guid: c26db69ae4721b44391bd8ed82508480, type: 3}
   projectile: {fileID: 0}
   projectileSpeed: 0
-  weponModel: {fileID: 0}
+  weaponModel: {fileID: 21300000, guid: 802a5a7aa2e6f4d459683d1e4e02f5ed, type: 3}
