@@ -1,19 +1,28 @@
 using UnityEngine;
 using NaughtyAttributes;
+using UnityEngine.Serialization;
 
 [CreateAssetMenu(fileName = "Weapon", menuName = "Weapon/Weapon")]
 public class Weapon : ScriptableObject
 {
     public int damage;
-    public int ammoCount;
-    //[HideInInspector]public int currentAmmo;
+    public WeaponType weaponType;
     public float fireRate;
-    public bool isProjectile;
-    public float reloadTime;
+    [SerializeField] bool isProjectile;
     public float equipTime;
-    public AmmunitonType ammunitonType;
+    [FormerlySerializedAs("ammunitonType")] public AmmunitonType ammoType;
     public AudioClip shoot;
     [ShowIf("isProjectile")]public GameObject projectile;
     [ShowIf("isProjectile")]public float projectileSpeed;
-    public Sprite weponModel;
+    public Sprite weaponModel;
+}
+
+public enum WeaponType
+{
+    pistol,
+    shotgun,
+    rocketgun,
+    plasma,
+    bfg,
+    
 }

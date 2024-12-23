@@ -1,7 +1,9 @@
 using System.Collections;
+using System.Threading.Tasks;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.InputSystem;
+using Unity.Jobs;
+using Unity.Collections;
 
 public class PlayerWeapon : MonoBehaviour
 {
@@ -13,7 +15,6 @@ public class PlayerWeapon : MonoBehaviour
     [SerializeField] AudioSource audio;
     Transform thisTransform;
     
-    Coroutine RelodeCorutine;
     //private InputAction scroll;
 
     void Awake()
@@ -27,8 +28,6 @@ public class PlayerWeapon : MonoBehaviour
         actions.Enable();
         actions.Player.Attack.performed += Shoot;
         actions.Player.Select.performed += SelectWeapon;
-        //actions.Player.Relode.performed += PlayerRelode;
-        //scroll = actions.Player.Select;
     }
 
     void OnDisable()
@@ -36,7 +35,6 @@ public class PlayerWeapon : MonoBehaviour
         actions.Disable();
         actions.Player.Attack.performed -= Shoot;
         actions.Player.Select.performed -= SelectWeapon;
-        //actions.Player.Relode.performed -= PlayerRelode;
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -77,27 +75,25 @@ public class PlayerWeapon : MonoBehaviour
     #region Shooting
     void Shoot(InputAction.CallbackContext context)
     {
-        //Coroutine fireMode;
-       /* if (RelodeCorutine != null && weapons[currentWeapon].currentAmmo > 0)
-        {
-            CorutineStop(ref RelodeCorutine);
-        }*/
-        if (!weapons[currentWeapon].isProjectile)
-        {
-            Debug.Log("Not a projectile");
-            StartCoroutine("FR");
-        }
-        else
-        {
-            Debug.Log("It's a projectile");
-            StartCoroutine("FP");
-        }
+
+       switch (weapons[currentWeapon].weaponType)
+       {
+           case WeaponType.pistol:
+               StartCoroutine("FR");
+               break;
+           case WeaponType.shotgun:
+               FireRayShotgun();
+               break;
+           default:
+               StartCoroutine("FP");
+               break;
+       }
     }
 
     IEnumerator FR() //Fire Ray
     {
         Debug.Log("FR");
-        while (actions.Player.Attack.IsPressed()&&ammo.Ammunitons[weapons[currentWeapon].ammunitonType].IntValue>0)
+        while (actions.Player.Attack.IsPressed()&&ammo.Ammunitons[weapons[currentWeapon].ammoType].IntValue>0)
         {
             FireRay();
             Debug.Log("fired");
@@ -105,22 +101,19 @@ public class PlayerWeapon : MonoBehaviour
 
             yield return new WaitForSeconds(weapons[currentWeapon].fireRate);
         }
-        //Relode();//ToThink: czy wstanienie relode w loop nie pozwoli strzelać ciągle z przewą na przeładowanie
-        //also czy nie ma problemu możliwości strzelania i przeładowania jednoczśnie
+
     }
 
     IEnumerator FP()
     {
-        while (actions.Player.Attack.IsPressed()&&ammo.Ammunitons[weapons[currentWeapon].ammunitonType].IntValue>0)
+        while (actions.Player.Attack.IsPressed() && ammo.Ammunitons[weapons[currentWeapon].ammoType].IntValue > 0)
         {
-           Debug.Log("FP");
-           FireProjectile();
-           SameForAllGuns();
+            Debug.Log("FP");
+            FireProjectile();
+            SameForAllGuns();
 
-           yield return new WaitForSeconds(weapons[currentWeapon].fireRate);
+            yield return new WaitForSeconds(weapons[currentWeapon].fireRate);
         }
-        //Relode();
-        
     }
     
 
@@ -137,9 +130,69 @@ public class PlayerWeapon : MonoBehaviour
         }
     }
 
+    #region Shotgun
+    private async void FireRayShotgun()
+    {
+        while (actions.Player.Attack.IsPressed() && ammo.Ammunitons[weapons[currentWeapon].ammoType].IntValue > 0)
+        {
+            SameForAllGuns();
+            if (Physics.Raycast(transform.position, transform.forward, out RaycastHit raycastHit, hitLayers))
+            {
+                Debug.Log(raycastHit.collider.gameObject.name);
+                IDamageable damageable = raycastHit.collider.gameObject.GetComponent<IDamageable>();
+                if (damageable != null)
+                {
+                    damageable.Damage(weapons[currentWeapon].damage);
+                }
+            }
+
+            var results = new NativeArray<RaycastHit>(50, Allocator.TempJob);
+
+            var commands = new NativeArray<RaycastCommand>(50, Allocator.TempJob);
+            QueryParameters queryParameters = default;
+            queryParameters.layerMask = hitLayers;
+            queryParameters.hitMultipleFaces = true;
+            // Set the data of the first command
+            Vector3 origin = transform.position;
+
+            for (int i = 0; i < commands.Length; i++)
+            {
+                commands[i] = new RaycastCommand(origin,
+                    transform.forward + new Vector3(Random.Range(0.01f, 0.15f), 0, 0), queryParameters);
+            }
+
+            // Schedule the batch of raycasts.
+            JobHandle handle = RaycastCommand.ScheduleBatch(commands, results, 1, default(JobHandle));
+
+            // Wait for the batch processing job to complete
+            handle.Complete();
+
+            // Copy the result. If batchedHit.collider is null there was no hit
+            foreach (var hit in results)
+            {
+                if (hit.collider != null)
+                {
+                    IDamageable damageable = hit.collider.gameObject.GetComponent<IDamageable>();
+                    if (damageable != null)
+                    {
+                        damageable.Damage(weapons[currentWeapon].damage);
+                    }
+                }
+            }
+
+            await ShotgunDelay();
+        }
+    }
+
+    private async Task ShotgunDelay()
+    {
+        await Task.Delay(((int)weapons[currentWeapon].fireRate)*1000);//counts in ms so *1000 is for converting it to seconds
+    }
+    #endregion   
+
     void SameForAllGuns()
     {
-        ammo.Ammunitons[weapons[currentWeapon].ammunitonType].IntValue--;
+        ammo.Ammunitons[weapons[currentWeapon].ammoType].IntValue--;
         audio.PlayOneShot(weapons[currentWeapon].shoot);
     }
     void FireProjectile()
@@ -147,58 +200,4 @@ public class PlayerWeapon : MonoBehaviour
         
     }
     #endregion
-#region Relode
-/*    private void Relode()
-    {
-        if (weapons[currentWeapon].currentAmmo <= 0)
-        {
-            //CorutineStop(ref RelodeCorutine);
-            CorutinStart(ref RelodeCorutine);
-        }
-    }
-    bool CorutinStart(ref Coroutine coroutine)
-    {
-        if (coroutine == null)
-        {
-            coroutine = StartCoroutine(Reloding());
-            return true;
-        }
-
-        return false;
-    }
-    bool CorutineStop(ref Coroutine coroutine)
-    {
-        if (coroutine != null)
-        {
-            //currentTime = 0;
-            StopCoroutine(coroutine);
-            coroutine = null;
-            return true;
-        }
-        return false;
-    }
-    private void PlayerRelode(InputAction.CallbackContext obj)
-    {
-        Weapon weapon = weapons[currentWeapon];
-        if (weapon.currentAmmo < weapon.ammoCount)
-        {
-            //currentTime += relodSpeedUp;
-            //animator.SetFloat("RelodeSpeed", animator.GetFloat("RelodeSpeed") + relodSpeedUp);
-            //CorutineStop(ref RelodeCorutine);
-            CorutinStart(ref RelodeCorutine);
-        }
-    }
-    IEnumerator Reloding()
-    {
-        Weapon weapon = weapons[currentWeapon];
-        yield return new WaitForSeconds(weapon.reloadTime);
-        weapon.currentAmmo=weapon.ammoCount;
-        
-    }*/
-    #endregion 
-    // Update is called once per frame
-    void FixedUpdate()
-    {
-
-    }
 }
