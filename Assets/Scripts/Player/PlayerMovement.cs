@@ -1,10 +1,13 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
+using DG.Tweening;
 
 public class PlayerMovement : MonoBehaviour
 {
     Actions actions; //popięcie do klasy z inputem
     [SerializeField] float speed = 5;
+    [SerializeField] Image weaponImage;
     
     //[SerializeField] Animator animator;
     //[SerializeField] PlayerWeapon weaponScript;

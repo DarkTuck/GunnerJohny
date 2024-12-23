@@ -1,9 +1,13 @@
+using System;
 using System.Collections;
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Unity.Jobs;
 using Unity.Collections;
+using UnityEngine.UI;
+using DG.Tweening;
+using Random = UnityEngine.Random;
 
 public class PlayerWeapon : MonoBehaviour
 {
@@ -13,10 +17,13 @@ public class PlayerWeapon : MonoBehaviour
     [SerializeField]private int currentWeapon=0;
     [SerializeField] LayerMask hitLayers;
     [SerializeField] AudioSource audio;
+    [SerializeField] Image weaponRender;
 
+    //Sequence changeWeapon = DOTween.Sequence();
     void Awake()
     {
         actions = new Actions();
+
     }
 
     void OnEnable()
@@ -36,6 +43,7 @@ public class PlayerWeapon : MonoBehaviour
     void Start()
     {
         ammo.InitializeAmmunitons();
+        weaponRender.sprite = weapons[currentWeapon].weaponModel;
         //audio.clip = weapons[currentWeapon].shoot;
         /*
         for (int i = 0; i < weapons.Length; i++)
@@ -48,13 +56,24 @@ public class PlayerWeapon : MonoBehaviour
         */
     }
 
-    void SelectWeapon(InputAction.CallbackContext context)
+    async Task changeWeaponTask()
+    {
+        Tween tween = weaponRender.rectTransform.DOAnchorPosY(-265.5f, weapons[currentWeapon].equipTime);
+        await tween.AsyncWaitForCompletion();
+        weaponRender.sprite = weapons[currentWeapon].weaponModel;
+        Tween tween2 = weaponRender.rectTransform.DOAnchorPosY(-164.5f,weapons[currentWeapon].equipTime);
+        await tween2.AsyncWaitForCompletion();
+
+    }
+    async void SelectWeapon(InputAction.CallbackContext context)
     {
         if (context.ReadValue<float>() > 0&& currentWeapon != weapons.Length-1)
         {
             if (weapons[currentWeapon+1] != null)
             {
+                
                 currentWeapon++;
+                await changeWeaponTask();
                 //audio.clip = weapons[currentWeapon].shoot;
             }
         }
@@ -62,7 +81,9 @@ public class PlayerWeapon : MonoBehaviour
         {
             if (weapons[currentWeapon-1] != null)
             {
+                
                 currentWeapon--;
+                await changeWeaponTask();
                 //audio.clip = weapons[currentWeapon].shoot;
             }
         }
