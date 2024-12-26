@@ -5,7 +5,7 @@ using DG.Tweening;
 public class DoorScript : MonoBehaviour
 {
     Actions actions;
-    [SerializeField] float distance=2f, doorOpenTime=1f,doorHight;
+    [SerializeField] float distance, doorOpenTime=1f,doorHight;
     [SerializeField] AudioClip doorOpenSound, doorCloseSound;
     Transform player;
     Vector3 doorPos;

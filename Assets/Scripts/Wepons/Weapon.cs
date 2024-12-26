@@ -24,5 +24,6 @@ public enum WeaponType
     rocketgun,
     plasma,
     bfg,
+    minigun,
     
 }

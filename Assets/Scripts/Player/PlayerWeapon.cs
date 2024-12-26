@@ -18,6 +18,7 @@ public class PlayerWeapon : MonoBehaviour
     [SerializeField] LayerMask hitLayers;
     [SerializeField] AudioSource audio;
     [SerializeField] Image weaponRender;
+    [SerializeField] Animator animator;
 
     //Sequence changeWeapon = DOTween.Sequence();
     void Awake()
@@ -96,6 +97,9 @@ public class PlayerWeapon : MonoBehaviour
        switch (weapons[currentWeapon].weaponType)
        {
            case WeaponType.pistol:
+               StartCoroutine(nameof(FR));
+               break;
+           case WeaponType.minigun:
                StartCoroutine(nameof(FR));
                break;
            case WeaponType.shotgun:
@@ -211,6 +215,20 @@ public class PlayerWeapon : MonoBehaviour
     {
         ammo.Ammunitons[weapons[currentWeapon].ammoType].IntValue--;
         audio.PlayOneShot(weapons[currentWeapon].shoot);
+       /* switch (weapons[currentWeapon].weaponType)
+        {
+            case WeaponType.pistol:
+                animator.Play("PistolAnim");
+                break;
+            case WeaponType.shotgun:
+                animator.Play("ShotgunAnim 0");
+                break;
+            default:
+                animator.Play("ShotgunAnim 0");
+                break;
+                
+        }
+        */
     }
     void FireProjectile()
     {
