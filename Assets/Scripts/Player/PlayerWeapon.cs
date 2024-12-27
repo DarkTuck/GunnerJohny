@@ -45,6 +45,7 @@ public class PlayerWeapon : MonoBehaviour
     {
         ammo.InitializeAmmunitons();
         weaponRender.sprite = weapons[currentWeapon].weaponModel;
+        Cursor.lockState = CursorLockMode.Locked;
         //audio.clip = weapons[currentWeapon].shoot;
         /*
         for (int i = 0; i < weapons.Length; i++)

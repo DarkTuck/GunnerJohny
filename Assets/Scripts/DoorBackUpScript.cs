@@ -2,14 +2,16 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using DG.Tweening;
 
-public class DoorScript : MonoBehaviour
+
+public class DoorBackUpScript : MonoBehaviour
 {
-    Actions actions;
+   Actions actions;
     [SerializeField] float distance, doorOpenTime=1f,doorHight;
     [SerializeField] AudioClip doorOpenSound, doorCloseSound;
     Transform player;
-    Vector3 doorPos;
     AudioSource doorAudio;
+    Vector3 doorPos;
+    [SerializeField]Transform door;
     bool doorOpen, doorCanBeOpened;
 
     void Awake()
@@ -33,10 +35,28 @@ public class DoorScript : MonoBehaviour
     void Start()
     {
         player = PlayerSingleton._player.transform;
-        doorPos = transform.position;
+        doorPos = door.position;
     }
 
-    private void FixedUpdate()
+    private void OnTriggerEnter(Collider other)
+    {
+        PlayerSingleton playerSingleton = other.gameObject.GetComponent<PlayerSingleton>();
+        if (playerSingleton != null)
+        {
+            actions.Player.Interact.started += TryToOpenDoor;
+        }
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        PlayerSingleton playerSingleton = other.gameObject.GetComponent<PlayerSingleton>();
+        if (playerSingleton != null)
+        {
+            actions.Player.Interact.started -= TryToOpenDoor;
+        }
+    }
+
+    /* private void FixedUpdate()
     {
         if (doorCanBeOpened==false && Vector3.Distance(new Vector3(Mathf.Round(player.position.x),0), new Vector3(Mathf.Round(doorPos.x),0)) <= distance)
         {
@@ -51,18 +71,19 @@ public class DoorScript : MonoBehaviour
         }
         //Debug.Log(@$"doorCanBeOpened:{doorCanBeOpened}");
     }
+    */
 
     void OpenDoor()
     {
         //Debug.Log("Open door");
-        transform.DOMove(doorPos+(Vector3.up*doorHight), duration: doorOpenTime);
+        door.DOMove(doorPos+(Vector3.up*doorHight), duration: doorOpenTime);
         doorAudio.PlayOneShot(doorOpenSound);
     }
 
     void CloseDoor()
     {
         //Debug.Log("Close door");
-        transform.DOMove(doorPos, duration: doorOpenTime);
+        door.DOMove(doorPos, duration: doorOpenTime);
         doorAudio.PlayOneShot(doorCloseSound);
     }
 
