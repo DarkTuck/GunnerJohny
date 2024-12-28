@@ -5,6 +5,7 @@ public class SetTarget : MonoBehaviour
 {
     [SerializeField] NavMeshAgent agent;
     [SerializeField] float targetDistance;
+    [SerializeField] Animator animator;
     private Transform objectTransform;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -19,10 +20,12 @@ public class SetTarget : MonoBehaviour
         if (Vector3.Distance(objectTransform.position, agent.destination) <= targetDistance)
         {
             agent.SetDestination(PlayerSingleton._player.transform.position);
+            animator.SetBool("walking", true);
         }
         else
         {
             agent.SetDestination(objectTransform.position);
+            animator.SetBool("walking", false);
         }
     }
 

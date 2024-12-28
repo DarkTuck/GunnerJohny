@@ -6,6 +6,7 @@ public class CloseAttack : MonoBehaviour
     [SerializeField] private float range=0.5f;
     [SerializeField] private int damage=5; //Temporary
     [SerializeField] float closeAtackCooldown=1f;
+    [SerializeField] Animator animator;
     Transform thisTransform;
     bool isAttacking;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -29,6 +30,7 @@ public class CloseAttack : MonoBehaviour
         Debug.Log("Ending");
         PlayerSingleton._damageable.Damage(damage);
         isAttacking = false;
+        animator.SetTrigger("shoot");
 
     }
     
