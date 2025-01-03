@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02d00b4e6f6b7974e93a0b5b821220fe, type: 3}
   m_Name: Ammuniton
   m_EditorClassIdentifier: 
-  bullets: 30
-  shells: 10
+  bullets: 50
+  shells: 20
   rockets: 3
   energyCell: 0
   maxBullets: 200
