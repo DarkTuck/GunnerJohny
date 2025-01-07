@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 8f5dd4a49f8b0c9489714bee3fe91105
+guid: 4eee6fe9c7166154b941963970c4b2ea
 AudioImporter:
   externalObjects: {}
   serializedVersion: 7
@@ -25,6 +25,6 @@ AssetOrigin:
   serializedVersion: 1
   productId: 107994
   packageName: Maestro - Midi Player Tool Kit - Free
-  packageVersion: 2.13.2
+  packageVersion: 2.14.0
   assetPath: Assets/MidiPlayer/Resources/SoundfontsDB/GeneralUser GS v1.471/wave/Nylon-Guitar-D3.wav
-  uploadId: 708691
+  uploadId: 719084

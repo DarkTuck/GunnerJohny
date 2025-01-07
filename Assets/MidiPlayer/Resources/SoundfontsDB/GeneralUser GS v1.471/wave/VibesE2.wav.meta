@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 1b0312b7a224ee141812f70149f7cd89
+guid: 5665b48c639c43e4f82611c864b2777b
 AudioImporter:
   externalObjects: {}
   serializedVersion: 7
@@ -25,6 +25,6 @@ AssetOrigin:
   serializedVersion: 1
   productId: 107994
   packageName: Maestro - Midi Player Tool Kit - Free
-  packageVersion: 2.13.2
+  packageVersion: 2.14.0
   assetPath: Assets/MidiPlayer/Resources/SoundfontsDB/GeneralUser GS v1.471/wave/VibesE2.wav
-  uploadId: 708691
+  uploadId: 719084

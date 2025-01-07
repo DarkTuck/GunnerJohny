@@ -162,7 +162,8 @@ namespace MidiPlayerTK
                 {
                     EditorGUI.indentLevel++;
                     commonEditor.DrawAlertOnDefault();
-                    DrawDefaultInspector();
+                    // Sometime, catch an error                        
+                    try { DrawDefaultInspector(); } catch { }
                     EditorGUI.indentLevel--;
                 }
 #endif

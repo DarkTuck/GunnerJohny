@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 7fd08df55f0e98f458253b9e631269e3
+guid: 937f46e34e51de74c9fc72d21686e843
 AudioImporter:
   externalObjects: {}
   serializedVersion: 7
@@ -25,6 +25,6 @@ AssetOrigin:
   serializedVersion: 1
   productId: 107994
   packageName: Maestro - Midi Player Tool Kit - Free
-  packageVersion: 2.13.2
+  packageVersion: 2.14.0
   assetPath: Assets/MidiPlayer/Resources/SoundfontsDB/GeneralUser GS v1.471/wave/Recorder-Cd5.wav
-  uploadId: 708691
+  uploadId: 719084

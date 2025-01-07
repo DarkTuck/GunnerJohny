@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 947f50d3fde3f7f46afa660f3fe4fad6
+guid: c79bcf3098888e240aeb49e968783cc7
 AudioImporter:
   externalObjects: {}
   serializedVersion: 7
@@ -25,6 +25,6 @@ AssetOrigin:
   serializedVersion: 1
   productId: 107994
   packageName: Maestro - Midi Player Tool Kit - Free
-  packageVersion: 2.13.2
+  packageVersion: 2.14.0
   assetPath: Assets/MidiPlayer/Resources/SoundfontsDB/GeneralUser GS v1.471/wave/Jazz-Guitar-C3.wav
-  uploadId: 708691
+  uploadId: 719084

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 47ef648f7b6b10c418e5efd0981435ba
+guid: 88ab30534f29a634a98b62d9e36036ab
 AudioImporter:
   externalObjects: {}
   serializedVersion: 7
@@ -25,6 +25,6 @@ AssetOrigin:
   serializedVersion: 1
   productId: 107994
   packageName: Maestro - Midi Player Tool Kit - Free
-  packageVersion: 2.13.2
+  packageVersion: 2.14.0
   assetPath: Assets/MidiPlayer/Resources/SoundfontsDB/GeneralUser GS v1.471/wave/Chimes.wav
-  uploadId: 708691
+  uploadId: 719084

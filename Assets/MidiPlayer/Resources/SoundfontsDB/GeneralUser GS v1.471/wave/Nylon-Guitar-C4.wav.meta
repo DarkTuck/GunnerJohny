@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 26bc1e69b7f85864fb7ffddc70279747
+guid: 1502c635d1d658e43a181ddfbeba4ff1
 AudioImporter:
   externalObjects: {}
   serializedVersion: 7
@@ -25,6 +25,6 @@ AssetOrigin:
   serializedVersion: 1
   productId: 107994
   packageName: Maestro - Midi Player Tool Kit - Free
-  packageVersion: 2.13.2
+  packageVersion: 2.14.0
   assetPath: Assets/MidiPlayer/Resources/SoundfontsDB/GeneralUser GS v1.471/wave/Nylon-Guitar-C4.wav
-  uploadId: 708691
+  uploadId: 719084

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a6270792ffe4a6343a35a9f0914cdb11
+guid: a124f35555495b24798e51ff9fe8abca
 AudioImporter:
   externalObjects: {}
   serializedVersion: 7
@@ -25,6 +25,6 @@ AssetOrigin:
   serializedVersion: 1
   productId: 107994
   packageName: Maestro - Midi Player Tool Kit - Free
-  packageVersion: 2.13.2
+  packageVersion: 2.14.0
   assetPath: Assets/MidiPlayer/Resources/SoundfontsDB/GeneralUser GS v1.471/wave/Voice-Loop-C5.wav
-  uploadId: 708691
+  uploadId: 719084

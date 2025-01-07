@@ -69,7 +69,7 @@ namespace MidiPlayerTK
     // So, I still don't have a solution for cleaning when upgrading versions... that's sad.
     public class CleanPackage
     {
-        //[MenuItem("Maestro/Cleaning MPTK Packages", false, 53)]
+        //[MenuItem(Constant.MENU_MAESTRO + "/Cleaning MPTK Packages", false, 53)]
         static public void CleaningPackages(MenuCommand menuCommand)
         {
             CleanDelete(Path.Combine(Application.dataPath, "MidiPlayer/Scripts/MPTKGameObject/Pro/MPTKEffectSoundFont.cs"));

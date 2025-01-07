@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b844941441b22e044ad5743344329eec
+guid: 15daeb945de556e4c87de712600618f3
 AudioImporter:
   externalObjects: {}
   serializedVersion: 7
@@ -25,6 +25,6 @@ AssetOrigin:
   serializedVersion: 1
   productId: 107994
   packageName: Maestro - Midi Player Tool Kit - Free
-  packageVersion: 2.13.2
+  packageVersion: 2.14.0
   assetPath: Assets/MidiPlayer/Resources/SoundfontsDB/GeneralUser GS v1.471/wave/Flute-E6.wav
-  uploadId: 708691
+  uploadId: 719084

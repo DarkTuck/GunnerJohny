@@ -25,8 +25,8 @@ namespace AClockworkBerry
 
         public override void OnInspectorGUI()
         {
-            base.DrawDefaultInspector();
-
+            // Sometime, catch an error                        
+            try { base.DrawDefaultInspector(); } catch { }
             ScreenLogger.Instance.InspectorGUIUpdated();
         }
     }

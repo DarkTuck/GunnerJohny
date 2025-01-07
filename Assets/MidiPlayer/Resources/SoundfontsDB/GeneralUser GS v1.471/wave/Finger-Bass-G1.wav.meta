@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f940984602746e843a401377dfb44942
+guid: 0162e0c4ec39be242b76c66298070ab6
 AudioImporter:
   externalObjects: {}
   serializedVersion: 7
@@ -25,6 +25,6 @@ AssetOrigin:
   serializedVersion: 1
   productId: 107994
   packageName: Maestro - Midi Player Tool Kit - Free
-  packageVersion: 2.13.2
+  packageVersion: 2.14.0
   assetPath: Assets/MidiPlayer/Resources/SoundfontsDB/GeneralUser GS v1.471/wave/Finger-Bass-G1.wav
-  uploadId: 708691
+  uploadId: 719084

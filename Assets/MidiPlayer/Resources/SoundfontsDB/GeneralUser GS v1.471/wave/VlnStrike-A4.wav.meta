@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c49eb413145b9aa499a15b2cd28243c0
+guid: 615cb765d1854864c821efbfe04e3c33
 AudioImporter:
   externalObjects: {}
   serializedVersion: 7
@@ -25,6 +25,6 @@ AssetOrigin:
   serializedVersion: 1
   productId: 107994
   packageName: Maestro - Midi Player Tool Kit - Free
-  packageVersion: 2.13.2
+  packageVersion: 2.14.0
   assetPath: Assets/MidiPlayer/Resources/SoundfontsDB/GeneralUser GS v1.471/wave/VlnStrike-A4.wav
-  uploadId: 708691
+  uploadId: 719084

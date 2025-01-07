@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 1a4e592e7d868654a9070bc8d5baa8b4
+guid: b71230c1ef84e6e49a14aee70bf0aec5
 AudioImporter:
   externalObjects: {}
   serializedVersion: 7
@@ -25,6 +25,6 @@ AssetOrigin:
   serializedVersion: 1
   productId: 107994
   packageName: Maestro - Midi Player Tool Kit - Free
-  packageVersion: 2.13.2
+  packageVersion: 2.14.0
   assetPath: Assets/MidiPlayer/Resources/SoundfontsDB/GeneralUser GS v1.471/wave/Fret-Slide.wav
-  uploadId: 708691
+  uploadId: 719084

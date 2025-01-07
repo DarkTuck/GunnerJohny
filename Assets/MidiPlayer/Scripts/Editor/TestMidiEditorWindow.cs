@@ -22,7 +22,7 @@ namespace MidiPlayerTK
         static private TestMidiEditorWindow window;
 
         // % (ctrl on Windows, cmd on macOS), # (shift), & (alt).
-        //[MenuItem("Maestro/Test Midi Editor", false, 5)]
+        //[MenuItem(Constant.MENU_MAESTRO + "/Test Midi Editor", false, 5)]
         static public void InitSequencer()
         {
             // Get existing open window or if none, make a new one:

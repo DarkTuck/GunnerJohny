@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 84fa05f94061bf74b937834ab65e1192
+guid: bc26395d1332ac54db23cc4f9e42ad50
 AudioImporter:
   externalObjects: {}
   serializedVersion: 7
@@ -25,6 +25,6 @@ AssetOrigin:
   serializedVersion: 1
   productId: 107994
   packageName: Maestro - Midi Player Tool Kit - Free
-  packageVersion: 2.13.2
+  packageVersion: 2.14.0
   assetPath: Assets/MidiPlayer/Resources/SoundfontsDB/GeneralUser GS v1.471/wave/Pick-Bass-D1.wav
-  uploadId: 708691
+  uploadId: 719084

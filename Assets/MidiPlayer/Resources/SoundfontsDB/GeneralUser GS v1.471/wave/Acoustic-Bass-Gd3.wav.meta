@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: afeeea0dd0da9bb438a658f03b94ee89
+guid: 6a58e3229957ce04fab99b60011b0cd9
 AudioImporter:
   externalObjects: {}
   serializedVersion: 7
@@ -25,6 +25,6 @@ AssetOrigin:
   serializedVersion: 1
   productId: 107994
   packageName: Maestro - Midi Player Tool Kit - Free
-  packageVersion: 2.13.2
+  packageVersion: 2.14.0
   assetPath: Assets/MidiPlayer/Resources/SoundfontsDB/GeneralUser GS v1.471/wave/Acoustic-Bass-Gd3.wav
-  uploadId: 708691
+  uploadId: 719084

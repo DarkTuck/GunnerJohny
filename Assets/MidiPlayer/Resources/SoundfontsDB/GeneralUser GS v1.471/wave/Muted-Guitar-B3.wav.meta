@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 88c1088a3970d0c488ff00a6e0415165
+guid: c54386a6d8357c948974532a39157856
 AudioImporter:
   externalObjects: {}
   serializedVersion: 7
@@ -25,6 +25,6 @@ AssetOrigin:
   serializedVersion: 1
   productId: 107994
   packageName: Maestro - Midi Player Tool Kit - Free
-  packageVersion: 2.13.2
+  packageVersion: 2.14.0
   assetPath: Assets/MidiPlayer/Resources/SoundfontsDB/GeneralUser GS v1.471/wave/Muted-Guitar-B3.wav
-  uploadId: 708691
+  uploadId: 719084

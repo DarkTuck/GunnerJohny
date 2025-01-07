@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: fedeb3ee3d560e74eac66af6a9546b02
+guid: 87aaea1ed329e8a42a7656c4e971d96d
 AudioImporter:
   externalObjects: {}
   serializedVersion: 7
@@ -25,6 +25,6 @@ AssetOrigin:
   serializedVersion: 1
   productId: 107994
   packageName: Maestro - Midi Player Tool Kit - Free
-  packageVersion: 2.13.2
+  packageVersion: 2.14.0
   assetPath: Assets/MidiPlayer/Resources/SoundfontsDB/GeneralUser GS v1.471/wave/CelloAttack-D1.wav
-  uploadId: 708691
+  uploadId: 719084

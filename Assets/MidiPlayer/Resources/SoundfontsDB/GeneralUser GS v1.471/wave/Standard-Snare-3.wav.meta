@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f5f452b9808ad154482135855000dbbd
+guid: 109619ae3b1deb1428bba6c9ad1eef44
 AudioImporter:
   externalObjects: {}
   serializedVersion: 7
@@ -25,6 +25,6 @@ AssetOrigin:
   serializedVersion: 1
   productId: 107994
   packageName: Maestro - Midi Player Tool Kit - Free
-  packageVersion: 2.13.2
+  packageVersion: 2.14.0
   assetPath: Assets/MidiPlayer/Resources/SoundfontsDB/GeneralUser GS v1.471/wave/Standard-Snare-3.wav
-  uploadId: 708691
+  uploadId: 719084

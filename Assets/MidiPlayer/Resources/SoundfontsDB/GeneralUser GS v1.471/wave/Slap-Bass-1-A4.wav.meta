@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a4890292c74e7394e8df10871830abeb
+guid: 7731b74a22de1e54e8cfd6c7695eca79
 AudioImporter:
   externalObjects: {}
   serializedVersion: 7
@@ -25,6 +25,6 @@ AssetOrigin:
   serializedVersion: 1
   productId: 107994
   packageName: Maestro - Midi Player Tool Kit - Free
-  packageVersion: 2.13.2
+  packageVersion: 2.14.0
   assetPath: Assets/MidiPlayer/Resources/SoundfontsDB/GeneralUser GS v1.471/wave/Slap-Bass-1-A4.wav
-  uploadId: 708691
+  uploadId: 719084

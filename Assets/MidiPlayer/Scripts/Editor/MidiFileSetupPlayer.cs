@@ -322,12 +322,12 @@ namespace MidiPlayerTK
                 float volume = MidiPlayerEditor.MidiPlayer.MPTK_Volume;
                 // Button to restore Volume to 0.5 with label style
                 if (GUILayout.Button("Volume: " + volume.ToString("F2"), MPTKGui.Label, GUILayout.Width(80))) volume = 0.5f;
-                MidiPlayerEditor.MidiPlayer.MPTK_Volume = GUILayout.HorizontalSlider(volume, 0.0f, 1f, MPTKGui.HorizontalSlider, MPTKGui.HorizontalThumb, GUILayout.Width(100));
+                MidiPlayerEditor.MidiPlayer.MPTK_Volume = GUILayout.HorizontalSlider(volume, 0f, Constant.MAX_VOLUME, MPTKGui.HorizontalSlider, MPTKGui.HorizontalThumb, GUILayout.Width(100));
 
                 float speed = MidiPlayerEditor.MidiPlayer.MPTK_Speed;
                 // Button to restore speed to 1 with label style
                 if (GUILayout.Button("Speed: " + speed.ToString("F2"), MPTKGui.Label, GUILayout.Width(80))) speed = 1f;
-                MidiPlayerEditor.MidiPlayer.MPTK_Speed = GUILayout.HorizontalSlider(speed, 0.01f, 10f, MPTKGui.HorizontalSlider, MPTKGui.HorizontalThumb, GUILayout.Width(100));
+                MidiPlayerEditor.MidiPlayer.MPTK_Speed = GUILayout.HorizontalSlider(speed, Constant.MIN_SPEED, Constant.MAX_SPEED, MPTKGui.HorizontalSlider, MPTKGui.HorizontalThumb, GUILayout.Width(100));
 
             }
             catch (Exception ex)

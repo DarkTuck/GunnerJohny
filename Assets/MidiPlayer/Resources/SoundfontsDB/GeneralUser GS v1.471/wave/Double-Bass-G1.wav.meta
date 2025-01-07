@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 6e55594f1ea184542a1272820b6b0d6e
+guid: e52a1504307bfef459f13f2a12d45dd9
 AudioImporter:
   externalObjects: {}
   serializedVersion: 7
@@ -25,6 +25,6 @@ AssetOrigin:
   serializedVersion: 1
   productId: 107994
   packageName: Maestro - Midi Player Tool Kit - Free
-  packageVersion: 2.13.2
+  packageVersion: 2.14.0
   assetPath: Assets/MidiPlayer/Resources/SoundfontsDB/GeneralUser GS v1.471/wave/Double-Bass-G1.wav
-  uploadId: 708691
+  uploadId: 719084

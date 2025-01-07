@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 2a0d41ad6a84b7848a4791baecf6c958
+guid: 4cd8e19385afe6c499e2d845c36717e6
 AudioImporter:
   externalObjects: {}
   serializedVersion: 7
@@ -25,6 +25,6 @@ AssetOrigin:
   serializedVersion: 1
   productId: 107994
   packageName: Maestro - Midi Player Tool Kit - Free
-  packageVersion: 2.13.2
+  packageVersion: 2.14.0
   assetPath: Assets/MidiPlayer/Resources/SoundfontsDB/GeneralUser GS v1.471/wave/CP-80-EP-E5.wav
-  uploadId: 708691
+  uploadId: 719084

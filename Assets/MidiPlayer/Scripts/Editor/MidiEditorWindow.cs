@@ -75,9 +75,9 @@ namespace MidiPlayerTK
 
         // % (ctrl on Windows, cmd on macOS), # (shift), & (alt).
 #if MPTK_PRO
-        [MenuItem("Maestro/Midi Editor &E", false, 12)]
+        [MenuItem(Constant.MENU_MAESTRO + "/Midi Editor &E", false, 12)]
 #else
-        [MenuItem("Maestro/Midi Editor [Pro] &E", false, 12)]
+        [MenuItem(Constant.MENU_MAESTRO + "/Midi Editor [Pro] &E", false, 12)]
 #endif
         public static void Init()
         {

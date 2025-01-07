@@ -49,7 +49,7 @@ namespace MidiPlayerTK
         private static Rect listMidiVisibleRect;
 
         // % (ctrl on Windows, cmd on macOS), # (shift), & (alt).
-        [MenuItem("Maestro/Midi File Setup &M", false, 10)]
+        [MenuItem(Constant.MENU_MAESTRO + "/Midi File Setup &M", false, 10)]
         public static void Init()
         {
             // Get existing open window or if none, make a new one:

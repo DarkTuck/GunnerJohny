@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 17401d01d56ec814eab820306aaae1ce
+guid: 38288acb3831c3e42ac18d1e3d938374
 AudioImporter:
   externalObjects: {}
   serializedVersion: 7
@@ -25,6 +25,6 @@ AssetOrigin:
   serializedVersion: 1
   productId: 107994
   packageName: Maestro - Midi Player Tool Kit - Free
-  packageVersion: 2.13.2
+  packageVersion: 2.14.0
   assetPath: Assets/MidiPlayer/Resources/SoundfontsDB/GeneralUser GS v1.471/wave/Flute-Cd5.wav
-  uploadId: 708691
+  uploadId: 719084

@@ -529,5 +529,10 @@ namespace MidiPlayerTK
         ///// 10: error, Read 0 byte from the SoundFont file.
         ///// </summary>
         SoundFontEmpty = 10,
+
+        ///// <summary>@brief
+        ///// 100: Not yet SF loaded.
+        ///// </summary>
+        Unknown = 100,
     }
 }

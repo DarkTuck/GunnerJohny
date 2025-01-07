@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ecc0eb8848609774d9095443f976fbe9
+guid: 1c2f955446d5757409c767000d83b405
 AudioImporter:
   externalObjects: {}
   serializedVersion: 7
@@ -25,6 +25,6 @@ AssetOrigin:
   serializedVersion: 1
   productId: 107994
   packageName: Maestro - Midi Player Tool Kit - Free
-  packageVersion: 2.13.2
+  packageVersion: 2.14.0
   assetPath: Assets/MidiPlayer/Resources/SoundfontsDB/GeneralUser GS v1.471/wave/Trumpet-E4.wav
-  uploadId: 708691
+  uploadId: 719084

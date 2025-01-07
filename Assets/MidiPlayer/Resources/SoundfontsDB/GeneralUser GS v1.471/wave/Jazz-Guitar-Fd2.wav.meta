@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d0338d960c508ff4fbda64d927cf7a0c
+guid: d31e28eb869c7ac49a7334d4a8dc5485
 AudioImporter:
   externalObjects: {}
   serializedVersion: 7
@@ -25,6 +25,6 @@ AssetOrigin:
   serializedVersion: 1
   productId: 107994
   packageName: Maestro - Midi Player Tool Kit - Free
-  packageVersion: 2.13.2
+  packageVersion: 2.14.0
   assetPath: Assets/MidiPlayer/Resources/SoundfontsDB/GeneralUser GS v1.471/wave/Jazz-Guitar-Fd2.wav
-  uploadId: 708691
+  uploadId: 719084

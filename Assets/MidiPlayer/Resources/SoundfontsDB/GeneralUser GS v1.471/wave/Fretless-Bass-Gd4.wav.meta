@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 30173d49f4c6ce94dabd48c7c281fe4b
+guid: fc98cf396e5e2304491b71aad0de6c82
 AudioImporter:
   externalObjects: {}
   serializedVersion: 7
@@ -25,6 +25,6 @@ AssetOrigin:
   serializedVersion: 1
   productId: 107994
   packageName: Maestro - Midi Player Tool Kit - Free
-  packageVersion: 2.13.2
+  packageVersion: 2.14.0
   assetPath: Assets/MidiPlayer/Resources/SoundfontsDB/GeneralUser GS v1.471/wave/Fretless-Bass-Gd4.wav
-  uploadId: 708691
+  uploadId: 719084

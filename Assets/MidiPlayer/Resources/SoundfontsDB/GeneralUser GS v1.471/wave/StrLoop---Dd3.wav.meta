@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e4cdade22cdc8b849aed0e078b188044
+guid: 5ddfd815dfb585e49a37768a73a1e11b
 AudioImporter:
   externalObjects: {}
   serializedVersion: 7
@@ -25,6 +25,6 @@ AssetOrigin:
   serializedVersion: 1
   productId: 107994
   packageName: Maestro - Midi Player Tool Kit - Free
-  packageVersion: 2.13.2
+  packageVersion: 2.14.0
   assetPath: Assets/MidiPlayer/Resources/SoundfontsDB/GeneralUser GS v1.471/wave/StrLoop---Dd3.wav
-  uploadId: 708691
+  uploadId: 719084

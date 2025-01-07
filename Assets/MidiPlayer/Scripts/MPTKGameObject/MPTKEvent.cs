@@ -152,6 +152,29 @@ namespace MidiPlayerTK
         /// </summary>
         public int Value;
 
+
+        // initial value before transpose
+        private int notTransposedValue;
+
+        // v2.15 - restore initial value before transpose
+        public void TransposeValue(int transpose)
+        {
+            if (notTransposedValue == -1)
+                // Must be set only at the first note-on played to get the initial value
+                notTransposedValue = Value;
+            // Restaure initial value
+            Value = notTransposedValue;
+            // Apply
+            Value += transpose;
+        }
+        public void ResetTransposeValue()
+        {
+            if (notTransposedValue > -1)
+                // Restaure initial value
+                Value = notTransposedValue;
+        }
+
+
         /// <summary>@brief
         /// MIDI channel fom 0 to 15 (9 for drum)
         /// </summary>
@@ -248,6 +271,7 @@ namespace MidiPlayerTK
             Velocity = 127; // max
             IdSession = -1;
             CreateTime = DateTime.UtcNow.Ticks;
+            notTransposedValue = -1;
         }
 
         /// <summary>@brief

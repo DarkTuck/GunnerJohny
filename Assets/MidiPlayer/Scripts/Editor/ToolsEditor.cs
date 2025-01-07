@@ -11,7 +11,7 @@ namespace MidiPlayerTK
     //[InitializeOnLoad]
     //class MPTKParameters
     //{
-    //    [MenuItem("Maestro/Folders")]
+    //    [MenuItem(Constant.MENU_MAESTRO + "/Folders")]
     //    static void Apply()
     //    {
     //        string path = EditorUtility.OpenFolderPanel("DB", "", "");

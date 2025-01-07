@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 54f2bd7211de45841a1ca35897bc7811
+guid: 754ae2570ac870240841bcb8e6b66517
 AudioImporter:
   externalObjects: {}
   serializedVersion: 7
@@ -25,6 +25,6 @@ AssetOrigin:
   serializedVersion: 1
   productId: 107994
   packageName: Maestro - Midi Player Tool Kit - Free
-  packageVersion: 2.13.2
+  packageVersion: 2.14.0
   assetPath: Assets/MidiPlayer/Resources/SoundfontsDB/GeneralUser GS v1.471/wave/Steel-Guitar-G5.wav
-  uploadId: 708691
+  uploadId: 719084

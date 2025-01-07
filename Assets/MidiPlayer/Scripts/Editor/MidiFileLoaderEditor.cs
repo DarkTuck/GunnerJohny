@@ -148,7 +148,8 @@ namespace MidiPlayerTK
                     if (showDefault)
                     {
                         EditorGUI.indentLevel++;
-                        DrawDefaultInspector();
+                        // Sometime, catch an error                        
+                        try { DrawDefaultInspector(); } catch { }
                         EditorGUI.indentLevel--;
                     }
 #endif

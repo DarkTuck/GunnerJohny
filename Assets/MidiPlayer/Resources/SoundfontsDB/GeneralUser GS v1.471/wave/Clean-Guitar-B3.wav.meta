@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: bc46d28c76bbbf14ba756f42301aa834
+guid: 1477f061ab8785f41be6637e8c5b009f
 AudioImporter:
   externalObjects: {}
   serializedVersion: 7
@@ -25,6 +25,6 @@ AssetOrigin:
   serializedVersion: 1
   productId: 107994
   packageName: Maestro - Midi Player Tool Kit - Free
-  packageVersion: 2.13.2
+  packageVersion: 2.14.0
   assetPath: Assets/MidiPlayer/Resources/SoundfontsDB/GeneralUser GS v1.471/wave/Clean-Guitar-B3.wav
-  uploadId: 708691
+  uploadId: 719084

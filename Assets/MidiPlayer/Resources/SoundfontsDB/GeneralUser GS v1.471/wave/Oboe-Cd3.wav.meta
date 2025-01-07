@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 770e69b2d6105c240b7a91c47482d652
+guid: 176f5265ebbca6c4ab6b1e02230157c8
 AudioImporter:
   externalObjects: {}
   serializedVersion: 7
@@ -25,6 +25,6 @@ AssetOrigin:
   serializedVersion: 1
   productId: 107994
   packageName: Maestro - Midi Player Tool Kit - Free
-  packageVersion: 2.13.2
+  packageVersion: 2.14.0
   assetPath: Assets/MidiPlayer/Resources/SoundfontsDB/GeneralUser GS v1.471/wave/Oboe-Cd3.wav
-  uploadId: 708691
+  uploadId: 719084

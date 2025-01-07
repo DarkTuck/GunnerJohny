@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 391745197b6434047a42b912ea00a64d
+guid: e482d604565c9e7499fbe87d2ea634fb
 AudioImporter:
   externalObjects: {}
   serializedVersion: 7
@@ -25,6 +25,6 @@ AssetOrigin:
   serializedVersion: 1
   productId: 107994
   packageName: Maestro - Midi Player Tool Kit - Free
-  packageVersion: 2.13.2
+  packageVersion: 2.14.0
   assetPath: Assets/MidiPlayer/Resources/SoundfontsDB/GeneralUser GS v1.471/wave/Techno-Bass.wav
-  uploadId: 708691
+  uploadId: 719084

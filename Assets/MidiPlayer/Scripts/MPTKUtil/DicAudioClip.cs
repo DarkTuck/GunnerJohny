@@ -6,7 +6,7 @@ namespace MidiPlayerTK
     //! @cond NODOC
 
     /// <summary>
-    /// Audioclip cache wich contains samples (legacy mode) 
+    /// Audioclip cache contains samples (legacy mode) 
     /// </summary>
     public class DicAudioClip
     {
@@ -20,6 +20,9 @@ namespace MidiPlayerTK
             AudioClip c;
             try
             {
+#if DEBUG_LOAD_WAVE
+                Debug.Log($"DicAudioClip.Add {name} {clip.length} {clip.frequency} {clip.name}");
+#endif
                 if (!dicSamples.TryGetValue(name, out c))
                 {
                     dicSamples.Add(name, clip);
