@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Threading.Tasks;
 using UnityEngine;
@@ -45,6 +44,7 @@ public class PlayerWeapon : MonoBehaviour
     {
         ammo.InitializeAmmunitons();
         weaponRender.sprite = weapons[currentWeapon].weaponModel;
+        animator.SetInteger("currentWeapon",currentWeapon);
         Cursor.lockState = CursorLockMode.Locked;
         //audio.clip = weapons[currentWeapon].shoot;
         /*
@@ -63,6 +63,7 @@ public class PlayerWeapon : MonoBehaviour
         Tween tween = weaponRender.rectTransform.DOAnchorPosY(-265.5f, weapons[currentWeapon].equipTime);
         await tween.AsyncWaitForCompletion();
         weaponRender.sprite = weapons[currentWeapon].weaponModel;
+        animator.SetInteger("currentWeapon",currentWeapon);
         Tween tween2 = weaponRender.rectTransform.DOAnchorPosY(-164.5f,weapons[currentWeapon].equipTime);
         await tween2.AsyncWaitForCompletion();
 
@@ -143,7 +144,7 @@ public class PlayerWeapon : MonoBehaviour
     {
         if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hit,hitLayers))
         {
-            Debug.Log(hit.collider.gameObject.name);
+//            Debug.Log(hit.collider.gameObject.name);
             IDamageable damageable = hit.collider.gameObject.GetComponent<IDamageable>();
             if (damageable != null)
             {
@@ -216,20 +217,8 @@ public class PlayerWeapon : MonoBehaviour
     {
         ammo.Ammunitons[weapons[currentWeapon].ammoType].IntValue--;
         audio.PlayOneShot(weapons[currentWeapon].shoot);
-       /* switch (weapons[currentWeapon].weaponType)
-        {
-            case WeaponType.pistol:
-                animator.Play("PistolAnim");
-                break;
-            case WeaponType.shotgun:
-                animator.Play("ShotgunAnim 0");
-                break;
-            default:
-                animator.Play("ShotgunAnim 0");
-                break;
-                
-        }
-        */
+        animator.SetTrigger("fire");
+        
     }
     void FireProjectile()
     {

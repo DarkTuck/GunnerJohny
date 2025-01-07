@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Shotgun
   m_EditorClassIdentifier: 
   damage: 20
-  weaponType: 0
+  weaponType: 1
   fireRate: 1
   isProjectile: 0
   equipTime: 1
