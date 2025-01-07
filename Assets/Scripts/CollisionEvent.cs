@@ -1,16 +1,18 @@
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class CollisionEvent : MonoBehaviour
 {
     [SerializeField] UnityEvent onCollision;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void onCollisionEnter()
+    
+
+    private void OnCollisionEnter(Collision other)
     {
         onCollision.Invoke();
     }
 
-    void onTriggerEnter()
+    private void OnTriggerEnter(Collider other)
     {
         onCollision.Invoke();
     }

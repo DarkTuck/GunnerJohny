@@ -17,6 +17,7 @@ public class Ammuniton : ScriptableObject
 
     public Dictionary<AmmunitonType, IntEvent> Ammunitons;
     public Dictionary<AmmunitonType, IntEvent> MaxAmmunitons;
+
     public void InitializeAmmunitons()
     {
         bulletsEvent.IntValue = bullets;
@@ -41,5 +42,14 @@ public class Ammuniton : ScriptableObject
             { AmmunitonType.Rockets, maxRocketsEvent },
             { AmmunitonType.EnergyCell, maxEnergyCell }
         };
+    }
+
+    public void AddAmmuniton()
+    {
+        bulletsEvent.IntValue = maxBullets;
+        shellsEvent.IntValue = maxShells;
+        rocketsEvent.IntValue = maxRockets;
+        energyCellEvent.IntValue = maxEnergyCells;
+            
     }
 }

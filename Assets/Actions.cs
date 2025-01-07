@@ -685,6 +685,15 @@ public partial class @Actions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""7f583ff1-7e05-4ff9-928d-1e5446968710"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -1105,6 +1114,136 @@ public partial class @Actions: IInputActionCollection2, IDisposable
                     ""action"": ""TrackedDeviceOrientation"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a48e9f49-28b5-478d-9977-e415aac7b30b"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2276ed15-b680-4ab7-8608-f909f26cdbbb"",
+                    ""path"": ""<Gamepad>/select"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""Cheats"",
+            ""id"": ""2d3daff0-7d05-4066-b29c-1217d6e18ad1"",
+            ""actions"": [
+                {
+                    ""name"": ""LoadMenu"",
+                    ""type"": ""Button"",
+                    ""id"": ""8eeda2d5-a7c9-4826-8ab3-46410ebc9d4b"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""LoadEndScreen"",
+                    ""type"": ""Button"",
+                    ""id"": ""2ad04134-4563-411d-b3bc-968ce80698d0"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""LoadGameScreen"",
+                    ""type"": ""Button"",
+                    ""id"": ""20afd693-263c-4bf3-b653-fba8f5aba765"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""AddHealth"",
+                    ""type"": ""Button"",
+                    ""id"": ""b6139448-ea30-4052-b760-d85c25cc05ae"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""AddAmmo"",
+                    ""type"": ""Button"",
+                    ""id"": ""5cce616c-0669-4402-9025-dec4a746fdfe"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""07f7abad-85e9-4d1a-8f72-43cb2d4e3226"",
+                    ""path"": ""<Keyboard>/f1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LoadMenu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0a1118f3-69df-4d37-8d20-3accfa512f56"",
+                    ""path"": ""<Keyboard>/f2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LoadEndScreen"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4d025a48-9f68-41c8-a653-26168cafb2da"",
+                    ""path"": ""<Keyboard>/f3"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LoadGameScreen"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""aad46105-fa7d-4655-954a-e8da5aa367a5"",
+                    ""path"": ""<Keyboard>/f4"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AddHealth"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""97c4e666-b9e2-44e6-8fb9-88b178294dc5"",
+                    ""path"": ""<Keyboard>/f5"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AddAmmo"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -1197,12 +1336,21 @@ public partial class @Actions: IInputActionCollection2, IDisposable
         m_UI_ScrollWheel = m_UI.FindAction("ScrollWheel", throwIfNotFound: true);
         m_UI_TrackedDevicePosition = m_UI.FindAction("TrackedDevicePosition", throwIfNotFound: true);
         m_UI_TrackedDeviceOrientation = m_UI.FindAction("TrackedDeviceOrientation", throwIfNotFound: true);
+        m_UI_Pause = m_UI.FindAction("Pause", throwIfNotFound: true);
+        // Cheats
+        m_Cheats = asset.FindActionMap("Cheats", throwIfNotFound: true);
+        m_Cheats_LoadMenu = m_Cheats.FindAction("LoadMenu", throwIfNotFound: true);
+        m_Cheats_LoadEndScreen = m_Cheats.FindAction("LoadEndScreen", throwIfNotFound: true);
+        m_Cheats_LoadGameScreen = m_Cheats.FindAction("LoadGameScreen", throwIfNotFound: true);
+        m_Cheats_AddHealth = m_Cheats.FindAction("AddHealth", throwIfNotFound: true);
+        m_Cheats_AddAmmo = m_Cheats.FindAction("AddAmmo", throwIfNotFound: true);
     }
 
     ~@Actions()
     {
         UnityEngine.Debug.Assert(!m_Player.enabled, "This will cause a leak and performance issues, Actions.Player.Disable() has not been called.");
         UnityEngine.Debug.Assert(!m_UI.enabled, "This will cause a leak and performance issues, Actions.UI.Disable() has not been called.");
+        UnityEngine.Debug.Assert(!m_Cheats.enabled, "This will cause a leak and performance issues, Actions.Cheats.Disable() has not been called.");
     }
 
     public void Dispose()
@@ -1400,6 +1548,7 @@ public partial class @Actions: IInputActionCollection2, IDisposable
     private readonly InputAction m_UI_ScrollWheel;
     private readonly InputAction m_UI_TrackedDevicePosition;
     private readonly InputAction m_UI_TrackedDeviceOrientation;
+    private readonly InputAction m_UI_Pause;
     public struct UIActions
     {
         private @Actions m_Wrapper;
@@ -1414,6 +1563,7 @@ public partial class @Actions: IInputActionCollection2, IDisposable
         public InputAction @ScrollWheel => m_Wrapper.m_UI_ScrollWheel;
         public InputAction @TrackedDevicePosition => m_Wrapper.m_UI_TrackedDevicePosition;
         public InputAction @TrackedDeviceOrientation => m_Wrapper.m_UI_TrackedDeviceOrientation;
+        public InputAction @Pause => m_Wrapper.m_UI_Pause;
         public InputActionMap Get() { return m_Wrapper.m_UI; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1453,6 +1603,9 @@ public partial class @Actions: IInputActionCollection2, IDisposable
             @TrackedDeviceOrientation.started += instance.OnTrackedDeviceOrientation;
             @TrackedDeviceOrientation.performed += instance.OnTrackedDeviceOrientation;
             @TrackedDeviceOrientation.canceled += instance.OnTrackedDeviceOrientation;
+            @Pause.started += instance.OnPause;
+            @Pause.performed += instance.OnPause;
+            @Pause.canceled += instance.OnPause;
         }
 
         private void UnregisterCallbacks(IUIActions instance)
@@ -1487,6 +1640,9 @@ public partial class @Actions: IInputActionCollection2, IDisposable
             @TrackedDeviceOrientation.started -= instance.OnTrackedDeviceOrientation;
             @TrackedDeviceOrientation.performed -= instance.OnTrackedDeviceOrientation;
             @TrackedDeviceOrientation.canceled -= instance.OnTrackedDeviceOrientation;
+            @Pause.started -= instance.OnPause;
+            @Pause.performed -= instance.OnPause;
+            @Pause.canceled -= instance.OnPause;
         }
 
         public void RemoveCallbacks(IUIActions instance)
@@ -1504,6 +1660,84 @@ public partial class @Actions: IInputActionCollection2, IDisposable
         }
     }
     public UIActions @UI => new UIActions(this);
+
+    // Cheats
+    private readonly InputActionMap m_Cheats;
+    private List<ICheatsActions> m_CheatsActionsCallbackInterfaces = new List<ICheatsActions>();
+    private readonly InputAction m_Cheats_LoadMenu;
+    private readonly InputAction m_Cheats_LoadEndScreen;
+    private readonly InputAction m_Cheats_LoadGameScreen;
+    private readonly InputAction m_Cheats_AddHealth;
+    private readonly InputAction m_Cheats_AddAmmo;
+    public struct CheatsActions
+    {
+        private @Actions m_Wrapper;
+        public CheatsActions(@Actions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @LoadMenu => m_Wrapper.m_Cheats_LoadMenu;
+        public InputAction @LoadEndScreen => m_Wrapper.m_Cheats_LoadEndScreen;
+        public InputAction @LoadGameScreen => m_Wrapper.m_Cheats_LoadGameScreen;
+        public InputAction @AddHealth => m_Wrapper.m_Cheats_AddHealth;
+        public InputAction @AddAmmo => m_Wrapper.m_Cheats_AddAmmo;
+        public InputActionMap Get() { return m_Wrapper.m_Cheats; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(CheatsActions set) { return set.Get(); }
+        public void AddCallbacks(ICheatsActions instance)
+        {
+            if (instance == null || m_Wrapper.m_CheatsActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_CheatsActionsCallbackInterfaces.Add(instance);
+            @LoadMenu.started += instance.OnLoadMenu;
+            @LoadMenu.performed += instance.OnLoadMenu;
+            @LoadMenu.canceled += instance.OnLoadMenu;
+            @LoadEndScreen.started += instance.OnLoadEndScreen;
+            @LoadEndScreen.performed += instance.OnLoadEndScreen;
+            @LoadEndScreen.canceled += instance.OnLoadEndScreen;
+            @LoadGameScreen.started += instance.OnLoadGameScreen;
+            @LoadGameScreen.performed += instance.OnLoadGameScreen;
+            @LoadGameScreen.canceled += instance.OnLoadGameScreen;
+            @AddHealth.started += instance.OnAddHealth;
+            @AddHealth.performed += instance.OnAddHealth;
+            @AddHealth.canceled += instance.OnAddHealth;
+            @AddAmmo.started += instance.OnAddAmmo;
+            @AddAmmo.performed += instance.OnAddAmmo;
+            @AddAmmo.canceled += instance.OnAddAmmo;
+        }
+
+        private void UnregisterCallbacks(ICheatsActions instance)
+        {
+            @LoadMenu.started -= instance.OnLoadMenu;
+            @LoadMenu.performed -= instance.OnLoadMenu;
+            @LoadMenu.canceled -= instance.OnLoadMenu;
+            @LoadEndScreen.started -= instance.OnLoadEndScreen;
+            @LoadEndScreen.performed -= instance.OnLoadEndScreen;
+            @LoadEndScreen.canceled -= instance.OnLoadEndScreen;
+            @LoadGameScreen.started -= instance.OnLoadGameScreen;
+            @LoadGameScreen.performed -= instance.OnLoadGameScreen;
+            @LoadGameScreen.canceled -= instance.OnLoadGameScreen;
+            @AddHealth.started -= instance.OnAddHealth;
+            @AddHealth.performed -= instance.OnAddHealth;
+            @AddHealth.canceled -= instance.OnAddHealth;
+            @AddAmmo.started -= instance.OnAddAmmo;
+            @AddAmmo.performed -= instance.OnAddAmmo;
+            @AddAmmo.canceled -= instance.OnAddAmmo;
+        }
+
+        public void RemoveCallbacks(ICheatsActions instance)
+        {
+            if (m_Wrapper.m_CheatsActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(ICheatsActions instance)
+        {
+            foreach (var item in m_Wrapper.m_CheatsActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_CheatsActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public CheatsActions @Cheats => new CheatsActions(this);
     private int m_KeyboardMouseSchemeIndex = -1;
     public InputControlScheme KeyboardMouseScheme
     {
@@ -1575,5 +1809,14 @@ public partial class @Actions: IInputActionCollection2, IDisposable
         void OnScrollWheel(InputAction.CallbackContext context);
         void OnTrackedDevicePosition(InputAction.CallbackContext context);
         void OnTrackedDeviceOrientation(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
+    }
+    public interface ICheatsActions
+    {
+        void OnLoadMenu(InputAction.CallbackContext context);
+        void OnLoadEndScreen(InputAction.CallbackContext context);
+        void OnLoadGameScreen(InputAction.CallbackContext context);
+        void OnAddHealth(InputAction.CallbackContext context);
+        void OnAddAmmo(InputAction.CallbackContext context);
     }
 }
