@@ -4,9 +4,11 @@ public class PickUpAmmuniton : PickUpScript
 {
     [SerializeField] private AmmoPickUp pickUpAmmunition;
     [SerializeField] private Ammuniton ammunition;
+    AudioSource audio;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        audio = GetComponent<AudioSource>();
         gameObject.GetComponent<SpriteRenderer>().sprite = pickUpAmmunition.ammoSprite;
     }
 
@@ -16,7 +18,8 @@ public class PickUpAmmuniton : PickUpScript
         if (CheckDistance())
         {
             pickUpAmmunition.PickUpAmmo(ammunition);
-            Destroy(this.gameObject);
+            audio.PlayOneShot(pickUpAmmunition.pickUpSound);
+            gameObject.SetActive(false);
         }
     }
     

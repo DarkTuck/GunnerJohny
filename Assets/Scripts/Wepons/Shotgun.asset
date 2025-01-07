@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4078ee441e15b24d81ab3d8a8d4c5ce, type: 3}
   m_Name: Shotgun
   m_EditorClassIdentifier: 
-  damage: 20
+  damage: 5
   weaponType: 1
   fireRate: 1
   isProjectile: 0

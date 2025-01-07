@@ -18,6 +18,7 @@ public class PlayerWeapon : MonoBehaviour
     [SerializeField] AudioSource audio;
     [SerializeField] Image weaponRender;
     [SerializeField] Animator animator;
+    private bool isShooting=false;
 
     //Sequence changeWeapon = DOTween.Sequence();
     void Awake()
@@ -29,7 +30,7 @@ public class PlayerWeapon : MonoBehaviour
     void OnEnable()
     {
         actions.Enable();
-        actions.Player.Attack.performed += Shoot;
+        actions.Player.Attack.started += Shoot;
         actions.Player.Select.performed += SelectWeapon;
     }
 
@@ -70,24 +71,27 @@ public class PlayerWeapon : MonoBehaviour
     }
     async void SelectWeapon(InputAction.CallbackContext context)
     {
-        if (context.ReadValue<float>() > 0&& currentWeapon != weapons.Length-1)
+        if (!isShooting)
         {
-            if (weapons[currentWeapon+1] != null)
+            if (context.ReadValue<float>() > 0 && currentWeapon != weapons.Length - 1)
             {
-                
-                currentWeapon++;
-                await changeWeaponTask();
-                //audio.clip = weapons[currentWeapon].shoot;
+                if (weapons[currentWeapon + 1] != null)
+                {
+
+                    currentWeapon++;
+                    await changeWeaponTask();
+                    //audio.clip = weapons[currentWeapon].shoot;
+                }
             }
-        }
-        else if(context.ReadValue<float>() <0 && currentWeapon !=0)
-        {
-            if (weapons[currentWeapon-1] != null)
+            else if (context.ReadValue<float>() < 0 && currentWeapon != 0)
             {
-                
-                currentWeapon--;
-                await changeWeaponTask();
-                //audio.clip = weapons[currentWeapon].shoot;
+                if (weapons[currentWeapon - 1] != null)
+                {
+
+                    currentWeapon--;
+                    await changeWeaponTask();
+                    //audio.clip = weapons[currentWeapon].shoot;
+                }
             }
         }
     }
@@ -95,22 +99,25 @@ public class PlayerWeapon : MonoBehaviour
     #region Shooting
     void Shoot(InputAction.CallbackContext context)
     {
-
-       switch (weapons[currentWeapon].weaponType)
-       {
-           case WeaponType.pistol:
-               StartCoroutine(nameof(FR));
-               break;
-           case WeaponType.minigun:
-               StartCoroutine(nameof(FR));
-               break;
-           case WeaponType.shotgun:
-               FireRayShotgun();
-               break;
-           default:
-               StartCoroutine(nameof(FP));
-               break;
-       }
+        if (!isShooting)
+        {
+            isShooting=true;
+            switch (weapons[currentWeapon].weaponType)
+            {
+                case WeaponType.pistol:
+                    StartCoroutine(nameof(FR));
+                    break;
+                case WeaponType.minigun:
+                    StartCoroutine(nameof(FR));
+                    break;
+                case WeaponType.shotgun:
+                    FireRayShotgun();
+                    break;
+                default:
+                    StartCoroutine(nameof(FP));
+                    break;
+            }
+        }
     }
 
     IEnumerator FR() //Fire Ray
@@ -124,6 +131,7 @@ public class PlayerWeapon : MonoBehaviour
 
             yield return new WaitForSeconds(weapons[currentWeapon].fireRate);
         }
+        isShooting=false;
 
     }
 
@@ -137,6 +145,8 @@ public class PlayerWeapon : MonoBehaviour
 
             yield return new WaitForSeconds(weapons[currentWeapon].fireRate);
         }
+
+        isShooting = false;
     }
     
 
@@ -205,6 +215,7 @@ public class PlayerWeapon : MonoBehaviour
 
             await ShotgunDelay();
         }
+        isShooting=false;
     }
 
     private async Task ShotgunDelay()

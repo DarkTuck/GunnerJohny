@@ -54,6 +54,7 @@
     <string>Faure - Requiem</string>
     <string>Final Fantasy - Village</string>
     <string>Fire Emblem 3 - Theme</string>
+    <string>For-Whom-The-Bell-Tolls</string>
     <string>Higelin Jacques - Champagne</string>
     <string>kakariko</string>
     <string>ladolcevita</string>
@@ -91,6 +92,20 @@
     <string>Satie - Trois Gnossiennes</string>
     <string>Sibelius - Finlandia</string>
     <string>Sibelius - Romance</string>
+    <string>Slayer-Angel Of Death</string>
+    <string>Slayer-Bitter Peace</string>
+    <string>Slayer-Black Magic</string>
+    <string>Slayer-Dead Skin Mask</string>
+    <string>Slayer-Dittohead</string>
+    <string>Slayer-Divine Intervention</string>
+    <string>Slayer-Mandatory Suicide</string>
+    <string>Slayer-Piece By Piece</string>
+    <string>Slayer-Raining Blood</string>
+    <string>Slayer-Show No Mercy</string>
+    <string>Slayer-South Of Heaven</string>
+    <string>Slayer-Spirit In Black</string>
+    <string>Slayer-Verbal Abuse</string>
+    <string>Slayer-War Ensemble</string>
     <string>Take 5 - by Paul Desmond</string>
     <string>Tchaikovsky - Flower Waltz</string>
     <string>Tetris2</string>

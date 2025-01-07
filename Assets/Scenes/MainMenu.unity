@@ -446,6 +446,18 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114662785300262660, guid: 32a8d8859acf18d4ba134834a876d5ea, type: 3}
+      propertyPath: showEvents
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114662785300262660, guid: 32a8d8859acf18d4ba134834a876d5ea, type: 3}
+      propertyPath: showDefault
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114662785300262660, guid: 32a8d8859acf18d4ba134834a876d5ea, type: 3}
+      propertyPath: showMidiInfo
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114662785300262660, guid: 32a8d8859acf18d4ba134834a876d5ea, type: 3}
       propertyPath: volumeGlobal
       value: 1
       objectReference: {fileID: 0}
@@ -458,12 +470,36 @@ PrefabInstance:
       value: 43
       objectReference: {fileID: 0}
     - target: {fileID: 114662785300262660, guid: 32a8d8859acf18d4ba134834a876d5ea, type: 3}
+      propertyPath: showMidiPlaying
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114662785300262660, guid: 32a8d8859acf18d4ba134834a876d5ea, type: 3}
+      propertyPath: showMidiParameter
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114662785300262660, guid: 32a8d8859acf18d4ba134834a876d5ea, type: 3}
+      propertyPath: showSpatialization
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114662785300262660, guid: 32a8d8859acf18d4ba134834a876d5ea, type: 3}
+      propertyPath: showSynthParameter
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114662785300262660, guid: 32a8d8859acf18d4ba134834a876d5ea, type: 3}
+      propertyPath: showSoundFontEffect
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114662785300262660, guid: 32a8d8859acf18d4ba134834a876d5ea, type: 3}
       propertyPath: MPTK_EffectSoundFont
       value: 
       objectReference: {fileID: 1319673903}
     - target: {fileID: 114662785300262660, guid: 32a8d8859acf18d4ba134834a876d5ea, type: 3}
       propertyPath: integratedThreadMidi
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114662785300262660, guid: 32a8d8859acf18d4ba134834a876d5ea, type: 3}
+      propertyPath: showUnitySynthEffect
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

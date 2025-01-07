@@ -5,4 +5,5 @@ public class HealthArmorPickUp : ScriptableObject
 {
     public int healthArmor;
     public Sprite healthArmorSprite;
+    public AudioClip pickUpSound;
 }

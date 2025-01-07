@@ -15,3 +15,4 @@ MonoBehaviour:
   ammo: 10
   ammoType: 0
   ammoSprite: {fileID: 21300000, guid: 297ff1fe5507b1046af2034e4bb353e2, type: 3}
+  pickUpSound: {fileID: 8300000, guid: 0d7a954b673b30f43b823968204a173b, type: 3}

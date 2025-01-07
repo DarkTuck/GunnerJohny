@@ -12,6 +12,7 @@ public class Cheats : MonoBehaviour
     {
         actions = new Actions();
         DontDestroyOnLoad(this.gameObject);
+        Application.targetFrameRate = 60;
     }
 
     void OnEnable()

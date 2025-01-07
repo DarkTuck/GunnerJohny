@@ -6,6 +6,7 @@ public class AmmoPickUp : ScriptableObject
     [SerializeField] int ammo;
     [SerializeField] AmmunitonType ammoType;
     public Sprite ammoSprite;
+    public AudioClip pickUpSound;
     
 
     public void PickUpAmmo(Ammuniton ammuniton)
