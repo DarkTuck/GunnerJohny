@@ -17,7 +17,7 @@ public class PlayerWeapon : MonoBehaviour
     [SerializeField] LayerMask hitLayers;
     [SerializeField] AudioSource audio;
     [SerializeField] Image weaponRender;
-    [SerializeField] Animator animator;
+    [SerializeField] Animator animator, faceAnimator;
     private bool isShooting=false;
 
     //Sequence changeWeapon = DOTween.Sequence();
@@ -131,6 +131,7 @@ public class PlayerWeapon : MonoBehaviour
 
             yield return new WaitForSeconds(weapons[currentWeapon].fireRate);
         }
+        faceAnimator.SetBool("shooting",false);
         isShooting=false;
 
     }
@@ -145,7 +146,7 @@ public class PlayerWeapon : MonoBehaviour
 
             yield return new WaitForSeconds(weapons[currentWeapon].fireRate);
         }
-
+        faceAnimator.SetBool("shooting",false);
         isShooting = false;
     }
     
@@ -215,6 +216,7 @@ public class PlayerWeapon : MonoBehaviour
 
             await ShotgunDelay();
         }
+        faceAnimator.SetBool("shooting",false);
         isShooting=false;
     }
 
@@ -229,6 +231,7 @@ public class PlayerWeapon : MonoBehaviour
         ammo.Ammunitons[weapons[currentWeapon].ammoType].IntValue--;
         audio.PlayOneShot(weapons[currentWeapon].shoot);
         animator.SetTrigger("fire");
+        faceAnimator.SetBool("shooting",true);
         
     }
     void FireProjectile()

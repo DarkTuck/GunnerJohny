@@ -24,6 +24,8 @@ public class EnemyHealth : MonoBehaviour , IDamageable
             animator.SetBool("dead",true);
             gameObject.GetComponent<SetTarget>().enabled = false;
             gameObject.GetComponent<CloseAttack>().enabled = false;
+
+            PlayerSingleton.SetFaceKillTrigger();
             DisableAfterDeath();
 
         }

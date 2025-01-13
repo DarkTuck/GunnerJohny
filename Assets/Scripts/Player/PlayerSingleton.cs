@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class PlayerSingleton : MonoBehaviour
 {
+    [SerializeField]Animator animator;
     private static PlayerSingleton _instance;
 
     public static Transform _player
@@ -16,7 +17,11 @@ public class PlayerSingleton : MonoBehaviour
         get => _instance._playerDamage;
         private set { }
     }
-    
+
+    public static void SetFaceKillTrigger()
+    {
+        _instance.animator.SetTrigger("kill");
+    }
     void Awake()
     {
         if (_instance == null)

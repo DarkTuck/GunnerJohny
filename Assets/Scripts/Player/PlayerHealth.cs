@@ -7,25 +7,10 @@ public class PlayerHealth : MonoBehaviour, IDamageable
 {
     [SerializeField][Foldout("Events")] HealthArmorScriptableObject playerHealth, playerArmor;
     [SerializeField] int health, armor;
+    [SerializeField] private Animator animator;
     [SerializeField][Foldout("Maxes")] int maxHealth = 200, maxArmor = 200;
     [SerializeField][Foldout("Audio")] AudioSource audioSource;
     [SerializeField][Foldout("Audio")] AudioClip damageSound,deathSound;
-    private Actions actions;
-    void Awake()
-    {
-        actions = new Actions();
-    }
-
-    private void OnEnable()
-    {
-        actions.Enable();
-        actions.Player.Relode.performed += DamagedTest;
-    }
-    void OnDisable()
-    {
-        actions.Disable();
-        actions.Player.Relode.performed -= DamagedTest;
-    }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -43,6 +28,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
         {
             playerHealth.IntValue -=/* Mathf.Clamp( Mathf.RoundToInt(((float)damage*0.6f)),0,MaxHealth)*/Mathf.RoundToInt(((float)damage*0.6f));
             playerArmor.IntValue = Mathf.Clamp(  playerArmor.IntValue-Mathf.RoundToInt(((float)damage*0.3f)),0,maxArmor);
+            animator.SetInteger("Health",playerHealth.IntValue);
             audioSource.PlayOneShot(damageSound);
         }
         else
@@ -70,9 +56,5 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     {
         
     }
-
-    void DamagedTest(InputAction.CallbackContext ctx)
-    {
-        Damage(10);
-    }
+    
 }
