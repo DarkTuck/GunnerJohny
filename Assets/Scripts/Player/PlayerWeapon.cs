@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Linq;
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -13,7 +14,7 @@ public class PlayerWeapon : MonoBehaviour
     [SerializeField] Weapon[] weapons;
     Actions actions;
     [SerializeField]Ammuniton ammo;
-    [SerializeField]private int currentWeapon=0;
+    [SerializeField]IntEvent currentWeapon,weaponCount;
     [SerializeField] LayerMask hitLayers;
     [SerializeField] AudioSource audio;
     [SerializeField] Image weaponRender;
@@ -44,9 +45,11 @@ public class PlayerWeapon : MonoBehaviour
     void Start()
     {
         ammo.InitializeAmmunitons();
-        weaponRender.sprite = weapons[currentWeapon].weaponModel;
-        animator.SetInteger("currentWeapon",currentWeapon);
+        weaponRender.sprite = weapons[currentWeapon.IntValue].weaponModel;
+        animator.SetInteger("currentWeapon",currentWeapon.IntValue);
         Cursor.lockState = CursorLockMode.Locked;
+        weaponCount.IntValue=weapons.Count(x=>x != null);
+        currentWeapon.IntValue=0;
         //audio.clip = weapons[currentWeapon].shoot;
         /*
         for (int i = 0; i < weapons.Length; i++)
@@ -59,13 +62,18 @@ public class PlayerWeapon : MonoBehaviour
         */
     }
 
+    public void PickUpWeapon(Weapon weapon)
+    {
+        weapons[weaponCount.IntValue = weapons.Count(x => x != null)] = weapon;
+        weaponCount.IntValue=weapons.Count(x=>x != null);
+    }
     async Task changeWeaponTask()
     {
-        Tween tween = weaponRender.rectTransform.DOAnchorPosY(-265.5f, weapons[currentWeapon].equipTime);
+        Tween tween = weaponRender.rectTransform.DOAnchorPosY(-265.5f, weapons[currentWeapon.IntValue].equipTime);
         await tween.AsyncWaitForCompletion();
-        weaponRender.sprite = weapons[currentWeapon].weaponModel;
-        animator.SetInteger("currentWeapon",currentWeapon);
-        Tween tween2 = weaponRender.rectTransform.DOAnchorPosY(-164.5f,weapons[currentWeapon].equipTime);
+        weaponRender.sprite = weapons[currentWeapon.IntValue].weaponModel;
+        animator.SetInteger("currentWeapon",currentWeapon.IntValue);
+        Tween tween2 = weaponRender.rectTransform.DOAnchorPosY(-164.5f,weapons[currentWeapon.IntValue].equipTime);
         await tween2.AsyncWaitForCompletion();
 
     }
@@ -73,22 +81,22 @@ public class PlayerWeapon : MonoBehaviour
     {
         if (!isShooting)
         {
-            if (context.ReadValue<float>() > 0 && currentWeapon != weapons.Length - 1)
+            if (context.ReadValue<float>() > 0 && currentWeapon.IntValue != weapons.Length - 1)
             {
-                if (weapons[currentWeapon + 1] != null)
+                if (weapons[currentWeapon.IntValue + 1] != null)
                 {
 
-                    currentWeapon++;
+                    currentWeapon.IntValue++;
                     await changeWeaponTask();
                     //audio.clip = weapons[currentWeapon].shoot;
                 }
             }
-            else if (context.ReadValue<float>() < 0 && currentWeapon != 0)
+            else if (context.ReadValue<float>() < 0 && currentWeapon.IntValue != 0)
             {
-                if (weapons[currentWeapon - 1] != null)
+                if (weapons[currentWeapon.IntValue - 1] != null)
                 {
 
-                    currentWeapon--;
+                    currentWeapon.IntValue--;
                     await changeWeaponTask();
                     //audio.clip = weapons[currentWeapon].shoot;
                 }
@@ -102,7 +110,7 @@ public class PlayerWeapon : MonoBehaviour
         if (!isShooting)
         {
             isShooting=true;
-            switch (weapons[currentWeapon].weaponType)
+            switch (weapons[currentWeapon.IntValue].weaponType)
             {
                 case WeaponType.pistol:
                     StartCoroutine(nameof(FR));
@@ -123,13 +131,13 @@ public class PlayerWeapon : MonoBehaviour
     IEnumerator FR() //Fire Ray
     {
         Debug.Log("FR");
-        while (actions.Player.Attack.IsPressed()&&ammo.Ammunitons[weapons[currentWeapon].ammoType].IntValue>0)
+        while (actions.Player.Attack.IsPressed()&&ammo.Ammunitons[weapons[currentWeapon.IntValue].ammoType].IntValue>0)
         {
             FireRay();
             Debug.Log("fired");
             SameForAllGuns();
 
-            yield return new WaitForSeconds(weapons[currentWeapon].fireRate);
+            yield return new WaitForSeconds(weapons[currentWeapon.IntValue].fireRate);
         }
         faceAnimator.SetBool("shooting",false);
         isShooting=false;
@@ -138,13 +146,13 @@ public class PlayerWeapon : MonoBehaviour
 
     IEnumerator FP()
     {
-        while (actions.Player.Attack.IsPressed() && ammo.Ammunitons[weapons[currentWeapon].ammoType].IntValue > 0)
+        while (actions.Player.Attack.IsPressed() && ammo.Ammunitons[weapons[currentWeapon.IntValue].ammoType].IntValue > 0)
         {
             Debug.Log("FP");
             FireProjectile();
             SameForAllGuns();
 
-            yield return new WaitForSeconds(weapons[currentWeapon].fireRate);
+            yield return new WaitForSeconds(weapons[currentWeapon.IntValue].fireRate);
         }
         faceAnimator.SetBool("shooting",false);
         isShooting = false;
@@ -159,7 +167,7 @@ public class PlayerWeapon : MonoBehaviour
             IDamageable damageable = hit.collider.gameObject.GetComponent<IDamageable>();
             if (damageable != null)
             {
-                damageable.Damage(weapons[currentWeapon].damage);
+                damageable.Damage(weapons[currentWeapon.IntValue].damage);
             }
         }
     }
@@ -167,7 +175,7 @@ public class PlayerWeapon : MonoBehaviour
     #region Shotgun
     private async void FireRayShotgun()
     {
-        while (actions.Player.Attack.IsPressed() && ammo.Ammunitons[weapons[currentWeapon].ammoType].IntValue > 0)
+        while (actions.Player.Attack.IsPressed() && ammo.Ammunitons[weapons[currentWeapon.IntValue].ammoType].IntValue > 0)
         {
             SameForAllGuns();
             if (Physics.Raycast(transform.position, transform.forward, out RaycastHit raycastHit, hitLayers))
@@ -176,7 +184,7 @@ public class PlayerWeapon : MonoBehaviour
                 IDamageable damageable = raycastHit.collider.gameObject.GetComponent<IDamageable>();
                 if (damageable != null)
                 {
-                    damageable.Damage(weapons[currentWeapon].damage);
+                    damageable.Damage(weapons[currentWeapon.IntValue].damage);
                 }
             }
 
@@ -209,7 +217,7 @@ public class PlayerWeapon : MonoBehaviour
                     IDamageable damageable = hit.collider.gameObject.GetComponent<IDamageable>();
                     if (damageable != null)
                     {
-                        damageable.Damage(weapons[currentWeapon].damage);
+                        damageable.Damage(weapons[currentWeapon.IntValue].damage);
                     }
                 }
             }
@@ -222,14 +230,14 @@ public class PlayerWeapon : MonoBehaviour
 
     private async Task ShotgunDelay()
     {
-        await Task.Delay(((int)weapons[currentWeapon].fireRate)*1000);//counts in ms so *1000 is for converting it to seconds
+        await Task.Delay(((int)weapons[currentWeapon.IntValue].fireRate)*1000);//counts in ms so *1000 is for converting it to seconds
     }
     #endregion   
 
     void SameForAllGuns()
     {
-        ammo.Ammunitons[weapons[currentWeapon].ammoType].IntValue--;
-        audio.PlayOneShot(weapons[currentWeapon].shoot);
+        ammo.Ammunitons[weapons[currentWeapon.IntValue].ammoType].IntValue--;
+        audio.PlayOneShot(weapons[currentWeapon.IntValue].shoot);
         animator.SetTrigger("fire");
         faceAnimator.SetBool("shooting",true);
         
