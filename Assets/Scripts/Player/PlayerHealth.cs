@@ -1,7 +1,6 @@
-using System;
 using NaughtyAttributes;
 using UnityEngine;
-using UnityEngine.InputSystem;
+
 
 public class PlayerHealth : MonoBehaviour, IDamageable
 {
@@ -30,6 +29,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
             playerArmor.IntValue = Mathf.Clamp(  playerArmor.IntValue-Mathf.RoundToInt(((float)damage*0.3f)),0,maxArmor);
             animator.SetInteger("Health",playerHealth.IntValue);
             audioSource.PlayOneShot(damageSound);
+            
         }
         else
         {

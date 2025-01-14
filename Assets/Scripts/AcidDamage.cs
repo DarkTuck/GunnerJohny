@@ -8,7 +8,7 @@ public class AcidDamage : MonoBehaviour
     private void OnCollisionEnter(Collision other)
     {
         IDamageable damageable = other.gameObject.GetComponent<IDamageable>();
-        if(damageable != null&& !inAcid);
+        if(damageable != null&& !inAcid)
         {
             inAcid = true;
             Damage(damageable);

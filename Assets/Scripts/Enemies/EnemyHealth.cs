@@ -5,6 +5,8 @@ public class EnemyHealth : MonoBehaviour , IDamageable
 {
     [SerializeField]int health = 100;
     [SerializeField]Animator animator;
+    [SerializeField] randomAudioClips randomAudioClips;
+    [SerializeField] AudioSource audioSource;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -24,9 +26,9 @@ public class EnemyHealth : MonoBehaviour , IDamageable
             animator.SetBool("dead",true);
             gameObject.GetComponent<SetTarget>().enabled = false;
             gameObject.GetComponent<CloseAttack>().enabled = false;
-
+            audioSource.PlayOneShot(randomAudioClips.GetRandomClip());
             PlayerSingleton.SetFaceKillTrigger();
-            DisableAfterDeath();
+            _ = DisableAfterDeath();
 
         }
 
