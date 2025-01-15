@@ -9,7 +9,7 @@ public class DoorBackUpScript : MonoBehaviour
     [SerializeField] float distance, doorOpenTime=1f,doorHight;
     [SerializeField] AudioClip doorOpenSound, doorCloseSound;
     Transform player;
-    AudioSource doorAudio;
+    [SerializeField]AudioSource doorAudio;
     Vector3 doorPos;
     [SerializeField]Transform door;
     bool doorOpen, doorCanBeOpened;
@@ -17,8 +17,6 @@ public class DoorBackUpScript : MonoBehaviour
     void Awake()
     {
         actions = new Actions();
-        AudioSource audio = GetComponent<AudioSource>();
-        doorAudio = audio == null ? gameObject.AddComponent<AudioSource>() : audio;
         
     }
 
