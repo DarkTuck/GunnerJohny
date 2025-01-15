@@ -15,6 +15,8 @@ public class SettingsScript : MonoBehaviour
     [BoxGroup("Graphics")] [SerializeField] TMP_Dropdown resolutionDropdown,qualityDropdown,textureDropdown,aaDropdown;
     [BoxGroup("Tabs")]
     [SerializeField]Canvas currentTab;
+    [BoxGroup("Warnigs")]
+    [SerializeField]GameObject musicWarnig,musicWarnig2,SfxWarnig,SfxWarnig2,VolumeWarnig,VolumeWarnig2;
     float currentVolume;
     float currentSFXVolume;
     float currentMusicVolume;
@@ -52,18 +54,54 @@ public class SettingsScript : MonoBehaviour
     {
         mixer.SetFloat("Master", volume);
         currentVolume = volume;
+        if (currentVolume > 0)
+        {
+            VolumeWarnig.SetActive(true);
+            VolumeWarnig2.SetActive(true);
+            return;
+        }
+
+        if (currentVolume < 0)
+        {
+            VolumeWarnig.SetActive(false);
+            VolumeWarnig2.SetActive(false);
+        }
     }
 
     public void SetSFXVolume(float volume)
     {
         mixer.SetFloat("sfx", volume);
         currentSFXVolume = volume;
+        if (currentSFXVolume > 0)
+        {
+            SfxWarnig.SetActive(true);
+            SfxWarnig2.SetActive(true);
+            return;
+        }
+
+        if (currentSFXVolume < 0)
+        {
+            SfxWarnig.SetActive(false);
+            SfxWarnig2.SetActive(false);
+        }
     }
 
     public void SetMusicVolume(float volume)
     {
         mixer.SetFloat("Music", volume);
         currentMusicVolume = volume;
+        if (currentMusicVolume > 0)
+        {
+            musicWarnig.SetActive(true);
+            musicWarnig2.SetActive(true);
+            return;
+        }
+
+        if (currentMusicVolume < 0)
+        {
+            musicWarnig.SetActive(false);
+            musicWarnig2.SetActive(false);
+        }
     }
     public void SetFullscreen(bool isFullscreen)
     {
@@ -75,6 +113,7 @@ public class SettingsScript : MonoBehaviour
         Screen.SetResolution(resolution.width, 
             resolution.height, Screen.fullScreen);
     }
+    /*
     public void SetTextureQuality(int textureIndex)
     {
         QualitySettings.globalTextureMipmapLimit = textureIndex;
@@ -119,59 +158,27 @@ public class SettingsScript : MonoBehaviour
     {
         QualitySettings.antiAliasing = aaIndex;
         qualityDropdown.value = 6;
-    }
+    } */
     public void ExitGame()
     {
         Application.Quit();
     }
     public void SaveSettings()
     {
-        PlayerPrefs.SetInt("QualitySettingPreference", 
-            qualityDropdown.value);
-        PlayerPrefs.SetInt("ResolutionPreference", 
-            resolutionDropdown.value);
-        PlayerPrefs.SetInt("TextureQualityPreference", 
-            textureDropdown.value);
-        PlayerPrefs.SetInt("AntiAliasingPreference", 
-            aaDropdown.value);
-        PlayerPrefs.SetInt("FullscreenPreference", 
-            Convert.ToInt32(Screen.fullScreen));
-        PlayerPrefs.SetFloat("VolumePreference", 
-            currentVolume);
+        PlayerPrefs.SetInt("QualitySettingPreference", qualityDropdown.value);
+        PlayerPrefs.SetInt("ResolutionPreference", resolutionDropdown.value);
+        PlayerPrefs.SetInt("TextureQualityPreference", textureDropdown.value);
+        PlayerPrefs.SetInt("AntiAliasingPreference", aaDropdown.value);
+        PlayerPrefs.SetInt("FullscreenPreference", Convert.ToInt32(Screen.fullScreen));
+        PlayerPrefs.SetFloat("VolumePreference", currentVolume);
     }
     public void LoadSettings(int currentResolutionIndex)
     {
-        if (PlayerPrefs.HasKey("QualitySettingPreference"))
-            qualityDropdown.value = 
-                PlayerPrefs.GetInt("QualitySettingPreference");
-        else
-            qualityDropdown.value = 3;
-        if (PlayerPrefs.HasKey("ResolutionPreference"))
-            resolutionDropdown.value = 
-                PlayerPrefs.GetInt("ResolutionPreference");
-        else
-            resolutionDropdown.value = currentResolutionIndex;
-        if (PlayerPrefs.HasKey("TextureQualityPreference"))
-            textureDropdown.value = 
-                PlayerPrefs.GetInt("TextureQualityPreference");
-        else
-            textureDropdown.value = 0;
-        if (PlayerPrefs.HasKey("AntiAliasingPreference"))
-            aaDropdown.value = 
-                PlayerPrefs.GetInt("AntiAliasingPreference");
-        else
-            aaDropdown.value = 1;
-        if (PlayerPrefs.HasKey("FullscreenPreference"))
-            Screen.fullScreen = 
-                Convert.ToBoolean(PlayerPrefs.GetInt("FullscreenPreference"));
-        else
-            Screen.fullScreen = true;
-        if (PlayerPrefs.HasKey("VolumePreference"))
-            volumeSlider.value = 
-                PlayerPrefs.GetFloat("VolumePreference");
-        else
-            volumeSlider.value = 
-                PlayerPrefs.GetFloat("VolumePreference");
+        qualityDropdown.value = PlayerPrefs.HasKey("QualitySettingPreference") ? PlayerPrefs.GetInt("QualitySettingPreference") : 3;
+        resolutionDropdown.value = PlayerPrefs.HasKey("ResolutionPreference") ? PlayerPrefs.GetInt("ResolutionPreference") : currentResolutionIndex;
+        textureDropdown.value = PlayerPrefs.HasKey("TextureQualityPreference") ? PlayerPrefs.GetInt("TextureQualityPreference") : 0;
+        aaDropdown.value = PlayerPrefs.HasKey("AntiAliasingPreference") ? PlayerPrefs.GetInt("AntiAliasingPreference") : 1;
+        Screen.fullScreen = !PlayerPrefs.HasKey("FullscreenPreference") || Convert.ToBoolean(PlayerPrefs.GetInt("FullscreenPreference"));
     }
     // Update is called once per frame
     void Update()
