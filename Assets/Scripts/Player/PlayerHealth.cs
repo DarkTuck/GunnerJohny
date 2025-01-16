@@ -10,6 +10,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     [SerializeField][Foldout("Maxes")] int maxHealth = 200, maxArmor = 200;
     [SerializeField][Foldout("Audio")] AudioSource audioSource;
     [SerializeField][Foldout("Audio")] AudioClip damageSound,deathSound;
+    [SerializeField] Canvas deathCanvas;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -31,12 +32,6 @@ public class PlayerHealth : MonoBehaviour, IDamageable
             audioSource.PlayOneShot(damageSound);
             
         }
-        else
-        {
-            playerHealth.IntValue -= damage;
-            audioSource.PlayOneShot(deathSound);
-        }
-
         if (playerHealth.IntValue <= 0)
         {
             Kill();
@@ -47,8 +42,12 @@ public class PlayerHealth : MonoBehaviour, IDamageable
 
     void Kill()
     {
-        Debug.Log("Player is dead");
+        deathCanvas.gameObject.SetActive(true);
+        Time.timeScale = 0;
         audioSource.PlayOneShot(deathSound);
+        gameObject.SetActive(false);
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
     }
 
     // Update is called once per frame

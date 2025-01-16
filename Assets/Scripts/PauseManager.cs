@@ -7,6 +7,7 @@ public class PauseManager : MonoBehaviour
     Actions actions;
     public static bool GameIsPaused = false;
     [SerializeField] GameObject pausemenuUI;
+    [SerializeField] PlayerWeapon playerWeapon;
     private void Awake()
     {
         pausemenuUI.SetActive(false);
@@ -46,6 +47,10 @@ public class PauseManager : MonoBehaviour
         GameIsPaused = false;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        if (pausemenuUI != null)
+        {
+            playerWeapon.enabled = true;
+        }
     }
     void Pause()
     {
@@ -54,6 +59,10 @@ public class PauseManager : MonoBehaviour
         GameIsPaused = true;
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
+        if(playerWeapon!=null)
+        {
+            playerWeapon.enabled = false;
+        }
     }
     public void LoadScene(string name)
     {
