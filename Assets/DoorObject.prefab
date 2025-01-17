@@ -86,6 +86,7 @@ MonoBehaviour:
   doorCloseSound: {fileID: 8300000, guid: 1625bce996d24414f82fdddb1985eab4, type: 3}
   doorAudio: {fileID: 1946381453833717347}
   door: {fileID: 749534240958232239}
+  doorKill: {fileID: 5554622291817166322}
 --- !u!135 &707907414284854105
 SphereCollider:
   m_ObjectHideFlags: 0

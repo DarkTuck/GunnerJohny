@@ -3,14 +3,16 @@ using System.Threading.Tasks;
 
 public class EnemyHealth : MonoBehaviour , IDamageable
 {
-    [SerializeField]int health = 100;
+    int health;
     [SerializeField]Animator animator;
     [SerializeField] randomAudioClips randomAudioClips;
     [SerializeField] AudioSource audioSource;
+
+    [SerializeField] private EnemyInt _enemyInt;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+     health = _enemyInt.health;   
     }
 
    public void Damage(int damage)

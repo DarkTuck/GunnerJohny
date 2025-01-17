@@ -17,6 +17,8 @@ public class SettingsScript : MonoBehaviour
     [SerializeField]Canvas currentTab;
     [BoxGroup("Warnigs")]
     [SerializeField]GameObject musicWarnig,musicWarnig2,SfxWarnig,SfxWarnig2,VolumeWarnig,VolumeWarnig2;
+    [BoxGroup("Difficulty")][SerializeField] EnemyDificultyValuses difficulty;
+    [SerializeField][BoxGroup("Difficulty")] TMP_Dropdown difficultyDropdown;
     float currentVolume;
     float currentSFXVolume;
     float currentMusicVolume;
@@ -159,8 +161,14 @@ public class SettingsScript : MonoBehaviour
         QualitySettings.antiAliasing = aaIndex;
         qualityDropdown.value = 6;
     } */
+    public void SetDifficulty(int difficultyIndex)
+    {
+        difficulty.ChangeDificultyValues(difficultyIndex);
+        difficulty.currentDificulty = difficultyIndex;
+    }
     public void ExitGame()
     {
+        SaveSettings();
         Application.Quit();
     }
     public void SaveSettings()
@@ -171,6 +179,7 @@ public class SettingsScript : MonoBehaviour
         PlayerPrefs.SetInt("AntiAliasingPreference", aaDropdown.value);
         PlayerPrefs.SetInt("FullscreenPreference", Convert.ToInt32(Screen.fullScreen));
         PlayerPrefs.SetFloat("VolumePreference", currentVolume);
+        PlayerPrefs.SetInt("Difficulty", difficulty.currentDificulty);
     }
     public void LoadSettings(int currentResolutionIndex)
     {
@@ -179,6 +188,13 @@ public class SettingsScript : MonoBehaviour
         textureDropdown.value = PlayerPrefs.HasKey("TextureQualityPreference") ? PlayerPrefs.GetInt("TextureQualityPreference") : 0;
         aaDropdown.value = PlayerPrefs.HasKey("AntiAliasingPreference") ? PlayerPrefs.GetInt("AntiAliasingPreference") : 1;
         Screen.fullScreen = !PlayerPrefs.HasKey("FullscreenPreference") || Convert.ToBoolean(PlayerPrefs.GetInt("FullscreenPreference"));
+        difficulty.currentDificulty = PlayerPrefs.GetInt("Difficulty");
+        difficultyDropdown.value = difficulty.currentDificulty;
+    }
+
+    void OnDisable()
+    {
+        SaveSettings();
     }
     // Update is called once per frame
     void Update()

@@ -12,6 +12,7 @@ public class DoorBackUpScript : MonoBehaviour
     [SerializeField]AudioSource doorAudio;
     Vector3 doorPos;
     [SerializeField]Transform door;
+    [SerializeField]GameObject doorKill;
     bool doorOpen, doorCanBeOpened;
 
     void Awake()
@@ -73,6 +74,7 @@ public class DoorBackUpScript : MonoBehaviour
 
     void OpenDoor()
     {
+        doorKill.SetActive(false);
         //Debug.Log("Open door");
         door.DOMove(doorPos+(Vector3.up*doorHight), duration: doorOpenTime);
         doorAudio.PlayOneShot(doorOpenSound);
@@ -81,6 +83,7 @@ public class DoorBackUpScript : MonoBehaviour
     void CloseDoor()
     {
         //Debug.Log("Close door");
+        doorKill.SetActive(true);
         door.DOMove(doorPos, duration: doorOpenTime);
         doorAudio.PlayOneShot(doorCloseSound);
     }

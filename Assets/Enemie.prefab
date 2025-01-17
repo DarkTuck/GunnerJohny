@@ -274,8 +274,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 6932148535387389846}
-  targetDistance: 25
   animator: {fileID: 4330124937923790165}
+  _enemyInt: {fileID: 11400000, guid: 11beb1b20e56fe9409acde2ca21b211e, type: 2}
 --- !u!114 &7808182222369263758
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -288,10 +288,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94115c52bbc28b44ab1c00085f29cd24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
   animator: {fileID: 4330124937923790165}
   randomAudioClips: {fileID: 11400000, guid: e998b7ec7b40350499f5e70e99c48072, type: 2}
   audioSource: {fileID: 2489154609928474199}
+  _enemyInt: {fileID: 11400000, guid: 11beb1b20e56fe9409acde2ca21b211e, type: 2}
 --- !u!114 &8689620420010787485
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -304,10 +304,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5aec21768b4a34b4abe96cb3de51a9cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 5
-  damage: 5
-  closeAtackCooldown: 1
   animator: {fileID: 4330124937923790165}
+  _enemyInt: {fileID: 11400000, guid: 11beb1b20e56fe9409acde2ca21b211e, type: 2}
 --- !u!82 &2489154609928474199
 AudioSource:
   m_ObjectHideFlags: 0
