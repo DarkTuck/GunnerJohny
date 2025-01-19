@@ -46,10 +46,10 @@ public class PlayerWeapon : MonoBehaviour
     {
         ammo.InitializeAmmunitons();
         weaponRender.sprite = weapons[currentWeapon.IntValue].weaponModel;
-        animator.SetInteger("currentWeapon",currentWeapon.IntValue);
         Cursor.lockState = CursorLockMode.Locked;
         weaponCount.IntValue=weapons.Count(x=>x != null);
         currentWeapon.IntValue=0;
+        animator.SetInteger("currentWeapon",currentWeapon.IntValue);
         //audio.clip = weapons[currentWeapon].shoot;
         /*
         for (int i = 0; i < weapons.Length; i++)

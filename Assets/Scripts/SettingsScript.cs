@@ -16,7 +16,7 @@ public class SettingsScript : MonoBehaviour
     [BoxGroup("Tabs")]
     [SerializeField]Canvas currentTab;
     [BoxGroup("Warnigs")]
-    [SerializeField]GameObject musicWarnig,musicWarnig2,SfxWarnig,SfxWarnig2,VolumeWarnig,VolumeWarnig2;
+    [SerializeField]GameObject musicWarnig,musicWarnig2,SfxWarnig,SfxWarnig2,VolumeWarnig,VolumeWarnig2,dificultyWarnig,dificultyWarnig2;
     [BoxGroup("Difficulty")][SerializeField] EnemyDificultyValuses difficulty;
     [SerializeField][BoxGroup("Difficulty")] TMP_Dropdown difficultyDropdown;
     float currentVolume;
@@ -165,6 +165,21 @@ public class SettingsScript : MonoBehaviour
     {
         difficulty.ChangeDificultyValues(difficultyIndex);
         difficulty.currentDificulty = difficultyIndex;
+        switch (difficultyIndex)
+        {
+            case 3:
+                dificultyWarnig.SetActive(true);
+                dificultyWarnig2.SetActive(false);
+                break;
+            case 4:
+                dificultyWarnig.SetActive(false);
+                dificultyWarnig2.SetActive(true);
+                break;
+            default:
+                dificultyWarnig.SetActive(false);
+                dificultyWarnig2.SetActive(false);
+                break;
+        }
     }
     public void ExitGame()
     {
